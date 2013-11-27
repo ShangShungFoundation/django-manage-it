@@ -27,7 +27,7 @@
 
 * Tigtly integrated with Assets Inventory app.
 * Comprehensive view on Network toopology
-* Broad definition of network devices: Network concetions can 
+* Broad definition of network devices: Network concetions can be even USB so all peripherial devices are included
 * Automatic Network toopology graph visualization (doesnt require intervetion)
 * Quick view for: location, state, owner
 * Info about each device can be easly accesse and eddited
