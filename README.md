@@ -2,7 +2,7 @@
 
 ##Basic App Suite for IT Management for small business
 
-Includes Management Dashboard with most reveling metrics of IT situation like: 
+Includes Management Dashboard with most urgent metrics of IT situation like: 
 * Problematic Assets
 * Pending Asset Requests
 * Unresolved Incidents
