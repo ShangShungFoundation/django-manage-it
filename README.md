@@ -1,6 +1,6 @@
 #django-it-manager
 
-##Basic App Suite for IT Management for small buisness
+##Basic App Suite for IT Management for small business
 
 
 ###Assets Inventory App
@@ -8,22 +8,24 @@
 * Create asset templates to allow for easier adding of individual items of the same kind.
 * Ability to retire & reactivate inventory assets.
 * Assign items to one or more users.
-* Items may have diferent owners.
-* Freelly defined properties for each asset class.
-* User defined locations (with precise position).
+* Items may have different owners.
+* Freely defined properties for each asset class.
+* User defined locations (with precise position). Create named groups of items. Users and items can be divided per regional office and per department.
 Create named groups of items.
 Users and items can be divided per regional office and per department.
 
 ###Asset Provision Management App
 
-Tigtly integrated with Assets Inventory app.
-* Allows users submit petitions for new asset or replacment of defectous one.
-* IT staff manages provisioning of user neceseties
-* Email alerts for change of state for asset petition
+* Tightly integrated with Assets Inventory app.
+* Comprehensive view on Network topology
+* Network topology graph visualization
+* Graph visualization is automatic (doesn't require intervention)
+* Quick view for: location, state, owner
+* Info about each device can be easily access and edited
 
 ###Network Management App
 
-Tigtly integrated with Assets Inventory app.
+* Tigtly integrated with Assets Inventory app.
 * Comprehensive view on Network toopology
 * Network toopology graph visualization
 * Graph visualization is automatic (doesnt require intervetion)
@@ -32,10 +34,10 @@ Tigtly integrated with Assets Inventory app.
 
 ###Incident Management App
 
-Tigtly integrated with Assets Inventory app.
-* Incident submition
+* Tightly integrated with Assets Inventory app.
+* Incident submission
 * Automatic evaluation of incident priority based on impact and urgency metrics
-* Incident Follow Up - keep track of all changes of state and observations folowing incident
+* Incident Follow Up - keep track of all changes of state and observations following incident
 * Email alerts for change of status of incident
 
 Installing
