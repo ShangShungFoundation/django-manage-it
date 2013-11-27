@@ -1,6 +1,6 @@
 #django-it-manager
 
-##Basic App Suite for IT Management for small business
+##Basic App Suite for IT Management for small organization
 
 Includes Management Dashboard with most urgent metrics of IT situation like: 
 * Problematic Assets
