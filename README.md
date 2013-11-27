@@ -2,7 +2,6 @@
 
 ##Basic App Suite for IT Management for small buisness
 
-It contains:
 
 ###Assets Inventory App
 
