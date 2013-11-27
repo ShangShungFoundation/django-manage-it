@@ -27,6 +27,7 @@ Users and items can be divided per regional office and per department.
 
 * Tigtly integrated with Assets Inventory app.
 * Comprehensive view on Network toopology
+* Broad definition of network devices: Network concetions can 
 * Automatic Network toopology graph visualization (doesnt require intervetion)
 * Quick view for: location, state, owner
 * Info about each device can be easly accesse and eddited
@@ -71,10 +72,12 @@ Create tables etc.:
 
 #TODO
 
-  [ ] Organizations
-  [ ] User permisions
-  [ ] Custom defined workflkows (asset provission)
+* [ ] Organizations
+* [ ] User permisions
+* [ ] Custom defined workflkows (asset provission)
 
 #LICENSE
 
+#Author
+Kamil Selwa selwak@gmail.com
 
