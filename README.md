@@ -2,6 +2,7 @@
 
 ##Basic App Suite for IT Management for small business
 
+Includes Management Dashbord with most reveling metrics of IT situation.
 
 ###Assets Inventory App
 
@@ -32,6 +33,7 @@
 ###Incident Management App
 
 * Tightly integrated with Assets Inventory app.
+* Broad definition of incident (for example lending)
 * Incident submission
 * Automatic evaluation of incident priority based on impact and urgency metrics
 * Incident Follow Up - keep track of all changes of state and observations following incident
