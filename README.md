@@ -27,8 +27,7 @@ Users and items can be divided per regional office and per department.
 
 * Tigtly integrated with Assets Inventory app.
 * Comprehensive view on Network toopology
-* Network toopology graph visualization
-* Graph visualization is automatic (doesnt require intervetion)
+* Automatic Network toopology graph visualization (doesnt require intervetion)
 * Quick view for: location, state, owner
 * Info about each device can be easly accesse and eddited
 
