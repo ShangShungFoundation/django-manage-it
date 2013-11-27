@@ -7,12 +7,10 @@
 
 * Create asset templates to allow for easier adding of individual items of the same kind.
 * Ability to retire & reactivate inventory assets.
-* Assign items to one or more users.
-* Items may have different owners.
+* Assign assets to one or more users.
+* Asets may have different owners.
 * Freely defined properties for each asset class.
-* User defined locations (with precise position). Create named groups of items. Users and items can be divided per regional office and per department.
-Create named groups of items.
-Users and items can be divided per regional office and per department.
+* User defined locations (with precise position). 
 
 ###Asset Provision Management App
 
