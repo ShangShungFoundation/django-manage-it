@@ -25,10 +25,9 @@
 
 ###Network Management App
 
-* Tigtly integrated with Assets Inventory app.
-* Comprehensive view on Network toopology
-* Broad definition of network devices: Network concetions can be even USB so all peripherial devices are included
-* Automatic Network toopology graph visualization (doesnt require intervetion)
+* Tightly integrated with Assets Inventory app.
+* Broad definition of network devices (conections can be even USB), so all peripherial devices can be maped
+* Automatic Network topology graph visualization (doesn't require intervetion)
 * Quick view for: location, state, owner
 * Info about each device can be easly accesse and eddited
 
