@@ -17,11 +17,9 @@
 ###Asset Provision Management App
 
 * Tightly integrated with Assets Inventory app.
-* Comprehensive view on Network topology
-* Network topology graph visualization
-* Graph visualization is automatic (doesn't require intervention)
-* Quick view for: location, state, owner
-* Info about each device can be easily access and edited
+* Petition Submission for new asset or replacement of defectous one
+* Petition Management 
+* Email alerts for change of status of petition
 
 ###Network Management App
 
