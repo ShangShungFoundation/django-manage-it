@@ -11,6 +11,7 @@
 * Asets may have different owners.
 * Freely defined properties for each asset class.
 * User defined locations (with precise position). 
+* Search utility
 
 ###Asset Provision Management App
 
