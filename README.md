@@ -12,6 +12,7 @@
 * Freely defined properties for each asset class.
 * User defined locations (with precise position). 
 * Search utility
+* Export of invetory (or subset definde by search) to Exell document
 
 ###Asset Provision Management App
 
