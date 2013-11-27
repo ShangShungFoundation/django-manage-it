@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h3>{{ incident.get_status_display }} incident #{{ incident.pk }}:</h3> 
+    <h1>{{ incident.title }}</h1>
+    <h4><em>Submited at {{ incident.created }} by {{ incident.created_by }}</em></h4>
+
+    <p>impact: {{ incident.get_impact_display }}, urgency: {{ incident.get_urgency_display }}, priority: {{ incident.get_priority_display }}</p>
+    <p>{{ incident.description }} </p>
+
+    <h4>Affected Devices</h4>
+    <ul>
+    {% for device in incident.affected_devices.all %}
+         <li>{{ device }}</li>
+    {% endfor %}
+    </ul>
+    
+    <hr>
+    
+    {% include "incidents/_new_incident_followup_form.html" %}
+    
+    <table>
+        {% for followup in incident.incidentfolowup_set.all.reverse %}
+        <tr>
+            <td><em>{{ followup.created_at }}</em> by <strong>{{ followup.created_by }}</strong></td>
+            <td>
+                {% if followup.display_changes %}
+                <ul>
+                {% for change in followup.display_changes %}
+                    <li>{{ change }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+            </td>
+            <td>{{ followup.observations }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    
+{% endblock content %}

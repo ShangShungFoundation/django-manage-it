@@ -1,0 +1,8 @@
+    <form action="{% url "incident_new" %}" method="post" >
+        <h3>Submit Incident</h3>
+        <ul>
+            {{ new_incident_form }}
+            <li><button>Submit</button>
+        </ul>
+        {% csrf_token %}
+    </form>

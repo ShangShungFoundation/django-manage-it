@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h2>Assets - {{ cathegory,title }}</h2>
+
+<table>
+	<th>
+		{% for header in headers %}
+		<td>{{ header.0 }}</td>
+		{% endfor %}
+	</th>
+	{% for item in cathegory %}
+	<tr>
+		
+			<td>{{ item }}</td>
+		
+	</tr>
+	{% endfor %}
+</table>
+{% endblock content %}

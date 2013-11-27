@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<h2>Asset Request</h2>
+
+<form action="" method="post">
+
+    <fieldset>
+        <ul>
+            {{ asset_request_form.as_ul }}
+        </ul>
+    </fieldset>
+    <p><button>REQUEST</button></p>
+    {% csrf_token %}
+</form>
+{% endblock content %}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>{% load i18n %}
+<!--[if lt IE 7 ]> <html lang="{{ LANGUAGE_CODE }}"  class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="{{ LANGUAGE_CODE }}"  class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="{{ LANGUAGE_CODE }}"  class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="{{ LANGUAGE_CODE }}"  class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="{{ LANGUAGE_CODE }}" class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>{% block page_title %}SSI inventory{% endblock %}</title>
+
+    <meta name="description" content="{% block meta_description %}{% endblock %}" />
+    <meta name="author" content="{% block meta_author %}{% endblock %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico">
+    <link rel="apple-touch-icon" href="{{ STATIC_URL }}images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ STATIC_URL }}images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ STATIC_URL }}images/apple-touch-icon-114x114.png" />
+
+    <link rel="stylesheet" href="{{ STATIC_URL }}foundation/css/foundation.css">
+    <link rel="stylesheet" href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css?v=1" /> 
+ <!--   <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/skeleton.css" media="handheld" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/layout.css" />
+    
+-->
+{% block css %}{% endblock %}
+
+    <script src="{{ STATIC_URL }}js/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body class="row {% block body_class %}{% endblock %}">
+<div class="large-12 columns">
+    <nav class="top-bar">
+        <ul class="title-area">
+            <li class="name">
+              <h1>
+                <a href="/">SSI/DC inventory</a>
+              </h1>
+            </li>
+        </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="divider"></li>
+          <li>
+                <a href="{% url "catalog" %}">Assets</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+                <a href="{% url "networks" %}">Network</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+                <a href="{% url "incidents" %}">Incidents</a>
+          </li>
+        </ul>
+      </section>
+    </nav>
+    
+    {% if messages %}
+    <ul class="messages">
+	{% for message in messages %}
+	<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	{% endfor %}
+    </ul>
+    {% endif %}
+
+{% block body %}
+    <header>
+{% block intro %}{% endblock intro %}
+    </header>
+
+    <div id="main">
+{% block content %}{% endblock content %}
+    </div>
+
+    <footer class="container large-12 columns">
+        <p>Copyright SSI 2013</p>
+    </footer>
+
+</div><!-- container -->
+{% endblock body %}
+
+{% block javascript_library %}
+    <script src="{{ STATIC_URL }}admin/js/admin/RelatedObjectLookups.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script>!window.jQuery && document.write(unescape('%3Cscript src="{{ STATIC_URL }}js/jquery-1.5.1.min.js"%3E%3C/script%3E'))</script>
+    <script src="{{ STATIC_URL }}js/app.js"></script>
+{% endblock %}
+
+<!--[if lt IE 7 ]>
+      <script src="{{ STATIC_URL }}js/dd_belatedpng.js?v=1"></script>
+<![endif]-->
+
+{% block javascript %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<h2>Incidents</h2>
+    <table>
+        {% for incident in incidents %}
+        <tr> 
+            <td><a href="{% url 'incident' incident.id %}">{{ incident.title }}</a></td>
+            <td>{{ incident.created }}</td>
+            <td>{{ incident.created_by }}</td>
+            <td class="status_{{ incident.status }}">{{ incident.get_status_display }}</td>
+            <td class="priority_{{ incident.priority }}">{{ incident.get_priority_display }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    {% include "incidents/_new_incident_form.html" %}
+    
+{% endblock content %}
