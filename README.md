@@ -1,4 +1,4 @@
-#django-it-manager
+#django-manage-IT
 
 ##Basic App Suite for IT Management for small organization
 
