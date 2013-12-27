@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<h1>Services</h1>
+<h2>{{ org.name }}</h2>
+
+<div class="large-6 columns">
+
+{% for parent in org.get_parents %}
+{% if parent %}
+<li>{{ parent }}</li>
+{% endif %}
+{% endfor %}
+</div>
+
+<div class="large-6 columns">
+{% regroup slas by service as service_list %}
+<ul>
+    {% for service in service_list %}
+    <li><a href="{{ service.grouper.get_absolute_url }}">{{ service.grouper }}</a>
+        <ul>
+            {% for sla in service.list %}
+            <li><a href="{{ sla.get_absolute_url }}">{{ sla }}</a></li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+</div>
+
+{% if user.is_staff %}
+<div class="large-12 columns">
+
+</div>
+{% endif %}
+
+{% endblock content %}
+
+
+{% block javascript %}
+
+{% endblock %}

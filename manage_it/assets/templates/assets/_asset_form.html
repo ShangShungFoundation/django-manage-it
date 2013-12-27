@@ -1,0 +1,24 @@
+	{% for error in form.non_field_errors %}
+	    {{error}}
+	{% endfor %}
+
+	<fieldset>
+		<ul>
+		{{ form.as_ul }}
+		</ul>
+	</fieldset>
+
+	<fieldset>
+		<legend>Particular properies {{ detail_form.title }}</legend>
+		<ul>
+			{{ detail_form.as_ul }}
+		</ul>
+	</fieldset>
+
+	<fieldset>
+		<legend>Resources</legend>
+		<ul>
+			{{ resource_form.as_ul }}
+		</ul>
+	</fieldset>
+	{% csrf_token %}

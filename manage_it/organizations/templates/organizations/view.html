@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h2>{{ org }}</h2>
+
+<div class="row">
+    <div class="large-6 columns">
+        <h4>{{ org.description }}</h4>
+        {% if org.manager %}<p>manager: {{ org.manager }} {{ org.manage.email }}</p>{% endif %}
+        <p>
+        {% if org.phone_number1 %}tel: {{ org.phone_number1 }}{% endif %}
+        {% if org.email %}<p>email: {{ org.email }} {% endif %}
+        </p>
+        
+        <ul>
+        {% for suborg in suborgs %}
+            <li><h4><a href="/{{ suborg.url }}/organization/">{{ suborg }}</a><h4></li>
+        {% endfor %}
+        </ul>
+        
+        <h3>Organization Groups</h3>
+        <ul>
+        {% for group in org.get_groups %}
+            {% if group.user_set.all %}
+            <li>
+                <h4>{{ group }}</h4>
+                <ul>
+                    {% for memeber in group.user_set.all %}
+                    <li>{{ memeber }} <a href="mailto:{{ memeber.email }}">{{ memeber.email }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+
+</form>
+{% endblock content %}

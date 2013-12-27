@@ -1,0 +1,4 @@
+*.pyc
+.directory
+sqlite.db
+manage_it/settings_local.py

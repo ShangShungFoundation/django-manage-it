@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h2>{{ org.name }}</h2>
+<h3>New SLA for {{ service.name }}</h3>
+
+
+<form method="post" enctype="multipart/form-data">
+<div class="row">
+    <div class="large-6 columns">
+        <ul>
+            {{ sla_form.as_p }}
+        </ul>
+        {{ document_form.management_form }}
+        
+        <h4>Attached Documents</h4>
+        {% for form in document_form %}
+        <ul>
+            {{ form.as_ul }}
+        <ul>
+        </ul>
+        {% endfor %}
+    </div>
+
+    <div class="large-6 columns" id="property_forms">
+        {% for key, prop in property_forms.items %}
+        <formset id="{{ key }}">
+            <legend>{{ prop.item_class.title }}</legend>
+            {{ prop.form.as_p }}
+        </formset>
+        {% endfor %}
+    </div>
+    <div class="large-12 columns"><button class="right">SUBMIT</button></div>
+</div>
+{% csrf_token %}
+</form>
+{% endblock content %}
+
+
+{% block javascript %}
+<script>
+
+var loaded_forms = [];
+
+$("#id_service_classes").on('change',function(){
+    // get s the diference in arrays
+    var new_forms = $($(this).val()).not(loaded_forms).get();
+    
+    // Eliminate forms which are not selected
+    
+    $.each(new_forms, function(f){
+        var i = f;
+        var url = "/{{ org.url }}/services/{{ service.id }}/sla/new/" + new_forms[i] + "/";
+        $.get( url, function(data) {
+            var form_container = $("#form_" + new_forms[i])
+            if (form_container.length) {
+                form_container.html( data );
+            } else {
+                $("#property_forms").append($("<div id='form_"+ new_forms[i] +"'>"+ data + "</div>"));
+            }
+        });
+    })
+    
+    /*for (var i=0; i < new_forms.length; i++){
+        var url = "/services/{{ service.id }}/sla/new/" + new_forms[i] + "/";
+        //var container = $("<div id='form_" + new_forms[i] + "'><div>");
+        //$("#property_forms").append(container);
+        
+        
+        // var loaded_form = $("#property_forms").load( url ); //+ " #form_" + new_forms[i] 
+        
+    }*/
+    
+    
+});
+</script>
+{% endblock %}

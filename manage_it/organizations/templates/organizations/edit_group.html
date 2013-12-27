@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+{% block css %}
+<script src="/admin/jsi18n/"></script>
+<script src="{{ STATIC_URL }}admin/js/core.js"></script>
+<script src="{{ STATIC_URL }}admin/js/admin/RelatedObjectLookups.js"></script>
+<script src="{{ STATIC_URL }}admin/js/jquery.js"></script>
+<script src="{{ STATIC_URL }}admin/js/jquery.init.js"></script>
+<script src="{{ STATIC_URL }}admin/js/actions.js"></script>
+<script src="{{ STATIC_URL }}admin/js/SelectBox.js"></script>
+<script src="{{ STATIC_URL }}admin/js/SelectFilter2.js"></script>
+<script src="{{ STATIC_URL }}admin/js/calendar.js"></script>
+<script src="{{ STATIC_URL }}admin/js/DateTimeShortcuts.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}admin/css/widgets.css"/>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}admin/css/forms.css"/>
+{% endblock %}
+
+{% block content %}
+<h2>{{ org.name }}</h2>
+<h3>{{ group.name }} Group</h3>
+
+
+<form method="post">
+<div class="row">
+    <div class="large-12 columns">
+        {{ form.as_p }}
+    </div>
+    <p><a href="{% url 'new_user' org_url %}">new user</a></p>
+    <div class="large-12 columns"><button class="right">SUBMIT</button></div>
+    
+    <h4>Other groups</h4>
+    <ul>
+        {% for val, name in group_types %}
+        <li><a href="{% url "set_organization_group" org_url val %}">{{ name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% csrf_token %}
+</form>
+{% endblock content %}
+
+
+{% block javascript %}
+{{ super }}
+
+{% endblock %}

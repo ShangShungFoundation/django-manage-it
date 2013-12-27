@@ -1,0 +1,8 @@
+    <form action="./" method="post" >
+        <h3>Submit Incident Followup</h3>
+        <ul>
+            {{ new_incident_followup_form.as_ul }}
+            <li><button>Submit</button>
+        </ul>
+        {% csrf_token %}
+    </form>

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<h2>Edit asset - {{ item }}</h2>
+
+<ul id="msgs">
+	{% for msg in msgs %}
+	<li>{{ msg }}</li>
+	{% endfor %}
+</ul>
+
+<form action="" method="post" enctype="multipart/form-data">
+	{% include "assets/_asset_form.html" %}
+	<p><button>UPDATE</button></p>
+</form>
+{% endblock content %}

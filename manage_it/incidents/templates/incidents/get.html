@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h3>{{ incident.get_status_display }} incident #{{ incident.pk }}:</h3> 
+    <h1>{{ incident.subject }}</h1>
+    <h4><em>Submited at {{ incident.submited_at }} by <a href="mailto:{{ incident.submited_by.email }}">{{ incident.submited_by }}</a></em></h4>
+    <p>deadline: {{ incident.deadline }} </p>
+    
+    {% if incident.alternate_user_name %}
+    <h4>Alternate Contact Details</h4>
+    <p>name: {{ incident.alternate_user_name }} email:{{ incident.alternate_user_email }} tel:{{ incident.alternate_user_tel }}</p>
+    {% endif %}
+    
+    <p>impact: {{ incident.get_impact_display }}, urgency: {{ incident.get_urgency_display }}, priority: {{ incident.get_priority_display }}</p>
+    <p>{{ incident.description }} </p>
+    
+    {% if incident.affected_devices.all %}
+    <h4>Affected Devices</h4>
+    <ul>
+    {% for device in incident.affected_devices.all %}
+         <li>{{ device }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    
+    {% if incident.affected_software %}
+    <p>Afected software: {{ incident.description }}</p>
+    {% endif %}
+    
+    {% if incident.error_msg %}
+    <p>Error message: {{ incident.error_msg }}</p>
+    {% endif %}
+    
+    <hr>
+    
+    {% include "incidents/_new_incident_followup_form.html" %}
+    
+    <table>
+        {% for followup in incident.incidentfolowup_set.all.reverse %}
+        <tr>
+            <td><em>{{ followup.created_at }}</em> by <strong>{{ followup.created_by }}</strong></td>
+            <td>
+                {% if followup.display_changes %}
+                <ul>
+                {% for change in followup.display_changes %}
+                    <li>{{ change }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+            </td>
+            <td>{{ followup.observations }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    
+{% endblock content %}

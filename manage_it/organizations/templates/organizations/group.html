@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h2>{{ org.name }}</h2>
+<h3>New SLA for {{ service.name }}</h3>
+
+
+<form method="post" enctype="multipart/form-data">
+<div class="row">
+    <div class="large-6 columns">
+        <ul>
+            {{ sla_form.as_p }}
+        </ul>
+        {{ document_form.management_form }}
+        
+        <h4>Attached Documents</h4>
+        {% for form in document_form %}
+        <ul>
+            {{ form.as_ul }}
+        <ul>
+        </ul>
+        {% endfor %}
+    </div>
+
+    <div class="large-6 columns" id="property_forms">
+        {% for key, prop in property_forms.items %}
+        <formset id="{{ key }}">
+            <legend>{{ prop.item_class.title }}</legend>
+            {{ prop.form.as_p }}
+        </formset>
+        {% endfor %}
+    </div>
+    <div class="large-12 columns"><button class="right">SUBMIT</button></div>
+</div>
+{% csrf_token %}
+</form>
+{% endblock content %}

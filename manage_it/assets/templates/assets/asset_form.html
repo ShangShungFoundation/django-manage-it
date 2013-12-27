@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<h2>Add asset - {{ item_class }}</h2>
+
+<ul id="msgs">
+	{% for msg in msgs %}
+	<li>{{ msg }}</li>
+	{% endfor %}
+</ul>
+
+<p><a href="/admin/catalog/itemtemplate/add/">add new template</a></p>
+<form action="" method="post">
+
+	{% include "assets/_asset_form.html" %}
+	<p><button>ADD</button></p>
+	{% csrf_token %}
+</form>
+{% endblock content %}
