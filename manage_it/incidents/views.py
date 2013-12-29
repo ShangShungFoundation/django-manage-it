@@ -12,6 +12,7 @@ from forms import NewIncidentForm, IncidentFollowupFormAdmin, IncidentFollowupFo
 
 
 @login_required
+@staff_required
 def get(request, org_url, object_id):
 
     incident = get_object_or_404(Incident, id=object_id)
@@ -48,6 +49,7 @@ def get(request, org_url, object_id):
 
 
 @login_required
+@staff_required
 def list(request, org_url):
     new_incident_form = NewIncidentForm(request.POST or None, )
     organization = get_object_or_404(Organization, url=org_url)

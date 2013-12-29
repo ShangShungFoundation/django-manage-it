@@ -5,6 +5,9 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import Group
 
 
+from settings import GROUP_ROLES
+
+
 class IncidentNotificationGroupNotDefined(Exception):
     """You must assing incident_notification_group in admin panell."""
     pass
@@ -212,13 +215,13 @@ class OrganizationGroupManager(models.Manager):
 class OrganizationGroup(models.Model):
 
     GROUP_ROLES = (
-        (1, "staff_group"),
-        (2, "admin_group"),
-        (3, "accounting_group"),
-        (4, "incident_notification_group"),
-        (5, "top_group"),
-        (6, "vip_group"),
-        (7, "purchase_notification_group"),
+        ("staff_group", _("Staff group")),
+        ("admin_group", _("Admin group")),
+        ("accounting_group", _("Accounting group")),
+        ("incident_notification_group", _("Incident notification group")),
+        ("top_group", _("Top group")),
+        ("vip_group", _("VIP group")),
+        ("purchase_notification_group", _("Purchase notification group")),
     )
 
     #objects = OrganizationGroupManager()
@@ -232,13 +235,16 @@ class OrganizationGroup(models.Model):
         verbose_name=_("organization"),
         related_name="related_organizations",
     )
-    role = models.SmallIntegerField(_(u"function"), choices=GROUP_ROLES)
+    role = models.CharField(
+        _(u"function"),
+        max_length=100,
+        choices=GROUP_ROLES)
 
     class Meta:
         unique_together = ('group', 'role',)
 
     def __unicode__(self):
-        return "%s %s" % (self.org, self.group)
+        return u"%s" % self.group
 
     @models.permalink
     def get_absolute_url(self):

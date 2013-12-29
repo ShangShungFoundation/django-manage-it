@@ -146,7 +146,8 @@ class Item(models.Model):
 
 
 class ItemGroup(models.Model):
-    name = models.CharField(verbose_name=_(u"name"), max_length=32)
+    name = models.CharField(
+        _(u"name"), max_length=32)
     items = models.ManyToManyField(
         Item,
         verbose_name=_(u"item"),
@@ -166,7 +167,8 @@ class ItemGroup(models.Model):
 
 
 class Person(models.Model):
-    last_name = models.CharField(_(u"last name"), max_length=32)
+    last_name = models.CharField(
+        _(u"last name"), max_length=32)
     second_last_name = models.CharField(
         _(u"second last name"),
         max_length=32, blank=True, null=True)
@@ -265,14 +267,18 @@ class AssetRequest(models.Model):
         verbose_name=_(u"item class"),
         related_name="related_requests")
 
-    created_at = models.DateTimeField(default=datetime.datetime.now())
-    created_by = models.ForeignKey(User, verbose_name=_(u"created by"))
+    created_at = models.DateTimeField(
+        default=datetime.datetime.now())
+    created_by = models.ForeignKey(
+        User, verbose_name=_(u"created by"))
 
     status = models.SmallIntegerField(
         _(u"status"),
         choices=ASSET_REQUEST_STATUSES)
 
-    description = models.TextField(_(u"description"), null=True, blank=True)
+    description = models.TextField(
+        _(u"description"), 
+        null=True, blank=True)
 
     def __unicode__(self):
         return u"new %s requested by %s at %s" % (

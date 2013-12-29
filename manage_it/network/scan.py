@@ -12,7 +12,6 @@ def scan(file_path):
         return el[1].items()[1][1], dict([[e.tag, e.attrib] for e in el])
 
     hosts = dict(map(map_h, root.iter("host")))
-    #import ipdb; ipdb.set_trace()
     devices_ips = Answer.objects.filter(field=1).select_related("submissions")
 
     ips = dict(
@@ -31,7 +30,6 @@ def scan(file_path):
             else:
                 hosts_alien[host_ip] = host
 
-    #import ipdb; ipdb.set_trace()
     vars = dict(
         hosts_up=hosts_up,
         hosts_alien=hosts_alien,
