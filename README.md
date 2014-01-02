@@ -22,7 +22,7 @@ App allows:
 ###Assets Inventory App
 
 * Supports multiple inventories for each organization
-* Create asset templates to allow for easier adding of individual items of the same kind.
+* Create asset templates to streamline adding of individual items belonging to the same model.
 * Ability to retire & reactivate inventory assets.
 * Assign assets to one or more users.
 * Assets may have different owners.
