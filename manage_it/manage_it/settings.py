@@ -96,7 +96,7 @@ TEMPLATE_LOADERS = (
     # 'django.template.loaders.eggs.Loader',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -107,7 +107,7 @@ MIDDLEWARE_CLASSES = (
     'pagination.middleware.PaginationMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
+]
 
 ROOT_URLCONF = 'manage_it.urls'
 
@@ -133,7 +133,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     #"allauth.socialaccount.context_processors.socialaccount",
 )
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -144,7 +144,6 @@ INSTALLED_APPS = (
     # core apps
     'catalog',
     'assets',
-    'pagination',
     'incidents',
     'network',
     'services',
@@ -152,13 +151,8 @@ INSTALLED_APPS = (
     'notifications',
     # dependencies
     'dataforms',
-    #'tastypie',
-    #allauth
-    #'allauth',
-    #'allauth.account',
-    #'allauth.socialaccount',
-    #'allauth.socialaccount.providers.google',
-)
+    'pagination',
+]
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
