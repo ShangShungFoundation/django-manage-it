@@ -2,8 +2,9 @@
 
 ##Basic App Suite for IT Management for organizations
  
-IT tool belt implementing some of best practices for IT management.
-Currntly contains apps:
+IT tool belt implementing some of best practices for IT management. Is in early beta stage so there can be some "rough edges" but it is already useful.
+
+Currently implemeted apps:
 
 ###Organization App
 This app should reflect organization structure. Stucture can be horizontal or herachical with any number of related organization units.
@@ -168,11 +169,13 @@ Not in order of importance or priority
 * [*] Implement Organizations
 * [*] User permissions
 * [ ] Documentation for users, managers and administrators
+* [ ] Login with OAuth
 * [*] Relate network connection to inventory
 * [ ] Integrate services to incident managent app so incidents can reffer to services
 * [ ] Build user interace to create and edit network interfaces in network app
 * [ ] Build user interace to create and edit connections in network app
-* [ ] Billing
+* [ ] Billing against recurrent services, assets etc
+* [ ] Trigerring notifications on custom defined conditions and events
 * [ ] Network monitoring
 * [ ] Refactor Organization as separate project
 * [ ] Refactor Location as separate project
