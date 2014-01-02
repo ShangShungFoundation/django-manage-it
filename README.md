@@ -97,7 +97,7 @@ Create DB tables etc.:
 
 You may preload dataforms with forms for assets and services:
 
-    python manager_it/manager_it/manage.py loaddata initial_data.json
+    python manager_it/manager_it/manage.py loaddata manager_it/manager_it/initial_data.json
 
 Settings
 --------
