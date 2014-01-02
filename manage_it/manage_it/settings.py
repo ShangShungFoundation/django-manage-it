@@ -103,7 +103,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.transaction.TransactionMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'pagination.middleware.PaginationMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -133,32 +132,34 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "allauth.socialaccount.context_processors.socialaccount",
 )
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dataforms',
+    'django.contrib.admin',
+
+    # core apps
     'catalog',
     'assets',
-    'django.contrib.admin',
-    'debug_toolbar',
-    'pagination',
     'incidents',
     'network',
-    'tastypie',
-
     'services',
     'organizations',
     'notifications',
+
+    # dependency apps
+    'pagination',
+    'dataforms',
+    'tastypie',
     #allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-)
+]
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
@@ -197,4 +198,20 @@ INTERNAL_IPS = (
 
 LIMIT_ASIGNED_USERS = []
 
-from settings_local import *
+
+# importing local settings
+try:
+    from settings_local import *
+except ImportError:
+    import sys
+    sys.stderr.write("local settings not available\n")
+else:
+    try:
+        INSTALLED_APPS += LOCAL_INSTALLED_APPS
+    except NameError:
+        pass
+
+    try:
+        MIDDLEWARE_CLASSES += LOCAL_MIDDLEWARE_CLASSES
+    except NameError:
+        pass
