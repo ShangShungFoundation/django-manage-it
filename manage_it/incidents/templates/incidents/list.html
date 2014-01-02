@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>{{ organization.name }} Incident Management</h2>
+<h2>Incident Management</h2>
     <table>
         <tr>
             <th>Date</th>
@@ -14,7 +14,7 @@
         {% for incident in incidents %}
         <tr> 
             <td>{{ incident.submited_at }}</td>
-            <td><a href="{% url 'incident' organization_url incident.id %}">{{ incident.subject }}</a></td> 
+            <td><a href="{% url 'incident' org_url incident.id %}">{{ incident.subject }}</a></td> 
             <td>{{ incident.submited_by }}</td>
             <td class="priority_{{ incident.priority }}">{{ incident.get_priority_display }}</td>
             <td>{{ incident.deadline }}</td>

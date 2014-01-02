@@ -27,7 +27,6 @@
     
 -->
 {% block css %}{% endblock %}
-
     <script src="{{ STATIC_URL }}js/modernizr-2.0.6.min.js"></script>
 </head>
 
@@ -45,6 +44,12 @@
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
+          {% if "admin_group" in request.user.roles or request.user.is_superuser %}
+          <li class="divider"></li>
+          <li>
+                <a href="{% url "dashboard" org_url %}">Dashboard</a>
+          </li>
+          {% endif %}
           <li class="divider"></li>
           <li>
                 <a href="{% url "inventories" org_url %}">Assets</a>
@@ -76,6 +81,11 @@
 
 {% block body %}
     <header>
+      <div class="breadcrumbs">
+        {% for or in org.get_organizations %}
+        <a href="{{ or.get_absolute_url }}">{{ or }}</a>
+        {% endfor %}
+      </div>
 {% block intro %}{% endblock intro %}
     </header>
 

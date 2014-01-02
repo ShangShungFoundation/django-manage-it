@@ -1,31 +1,37 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.encoding import force_unicode
+from django.utils.translation import ugettext_lazy as _
+
 
 LEVEL_CHOICES = (
-    (1, "mesage"),
-    (2, "warning"),
-    (3, "error"),
+    (1, _("mesage")),
+    (2, _("warning")),
+    (3, _("error")),
 )
 
 STATUS = (
-    (1, "pending"),
-    (2, "delivered"),
-    (3, "read"),
+    (1, _("pending")),
+    (2, _("delivered")),
+    (3, _("read")),
 )
 
 
 class Notification(models.Model):
-    sender = models.ForeignKey(User, related_name="related_senders")
-    receptor = models.ForeignKey(User, related_name="related_receptors")
-    message = models.TextField()
-    level = models.IntegerField(choices=LEVEL_CHOICES)
-    created = models.DateTimeField(auto_now_add=True)
-    modified = models.DateTimeField(auto_now=True)
-    url = models.URLField(blank=True, null=True)
-    read = models.BooleanField(default=False)
-    status = models.IntegerField(choices=STATUS, default=2)
-    expires = models.DateTimeField(null=True, blank=True)
+    sender = models.ForeignKey(
+        User, related_name="related_senders",
+        verbose_name=_(u"User"))
+    receptor = models.ForeignKey(
+        User, related_name="related_receptors",
+        verbose_name=_(u"receptor"))
+    message = models.TextField(_(u"message"))
+    level = models.IntegerField(_(u"level"), choices=LEVEL_CHOICES)
+    created = models.DateTimeField(_(u"created"), auto_now_add=True)
+    modified = models.DateTimeField(_(u"modified"), auto_now=True)
+    url = models.URLField(_(u"url"), blank=True, null=True)
+    status = models.IntegerField(_(u"status"), choices=STATUS, default=2)
+    expires = models.DateTimeField(_(u"expires"), null=True, blank=True)
 
     def __unicode__(self):
         return force_unicode(self.message)

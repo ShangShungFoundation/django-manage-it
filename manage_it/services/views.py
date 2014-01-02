@@ -16,12 +16,13 @@ DATA_FORM_KEY = u"%s_%s"
 
 @login_required
 @staff_required
-def list_services(request, *args, **kwargs):
+def list_services(request, org_url,):
     org = request.organization
     slas = SLA.objects.in_organization(org.slug)
     vars = dict(
         org=org,
         slas=slas,
+        org_url=org_url,
     )
 
     return render(
@@ -32,7 +33,7 @@ def list_services(request, *args, **kwargs):
 
 @login_required
 @staff_required
-def view_service(request, object_id, *args, **kwargs):
+def view_service(request, org_url, object_id):
     org = request.organization
 
     service = Service.objects.get(pk=object_id)
@@ -41,6 +42,7 @@ def view_service(request, object_id, *args, **kwargs):
     vars = dict(
         org=org,
         service=service,
+        org_url=org_url,
     )
 
     return render(
@@ -62,7 +64,7 @@ def _create_properties_form(request, service_id, data_form_id):
 
 @login_required
 @manager_required
-def sla_detail_form(request, service_id, data_form_id, *args, **kwargs):
+def sla_detail_form(request, org_url, service_id, data_form_id):
     return render(
         request,
         "services/_sku_properties_form.html",
@@ -72,7 +74,7 @@ def sla_detail_form(request, service_id, data_form_id, *args, **kwargs):
 
 @login_required
 @manager_required
-def add_sla(request, service_id, *args, **kwargs):
+def add_sla(request, org_url, service_id):
     property_forms = {}
     org = request.organization
     service = get_object_or_404(Service, pk=service_id)
@@ -113,6 +115,7 @@ def add_sla(request, service_id, *args, **kwargs):
             return redirect(sla)
     vars = dict(
         org=org,
+        org_url=org_url,
         service=service,
         sla_form=sla_form,
         property_forms=property_forms,
@@ -126,7 +129,7 @@ def add_sla(request, service_id, *args, **kwargs):
 
 @login_required
 @manager_required
-def edit_sla(request, service_id, sla_id, *args, **kwargs):
+def edit_sla(request, org_url, service_id, sla_id):
     property_forms = {}
     org = request.organization
     service = get_object_or_404(Service, pk=service_id)
@@ -172,6 +175,7 @@ def edit_sla(request, service_id, sla_id, *args, **kwargs):
         document_form = DocumentFormSet(instance=sla)
     vars = dict(
         org=org,
+        org_url=org_url,
         service=service,
         sla_form=sla_form,
         property_forms=property_forms,
@@ -186,7 +190,7 @@ def edit_sla(request, service_id, sla_id, *args, **kwargs):
 
 @login_required
 @staff_required
-def sla_view(request, service_id, object_id, *args, **kwargs):
+def sla_view(request, org_url, service_id, object_id):
 
     service = get_object_or_404(Service, id=service_id)
     sku = get_object_or_404(SLA, id=object_id)
@@ -200,6 +204,7 @@ def sla_view(request, service_id, object_id, *args, **kwargs):
 
     vars = dict(
         org=org,
+        org_url=org_url,
         service=service,
         sku=sku,
         sku_properties=sku_properties,

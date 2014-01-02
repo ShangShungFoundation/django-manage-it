@@ -3,8 +3,7 @@
 
 
 {% block content %}
-<h2>{{ org.name }}</h2>
-<h3>{{ service.name }}</h3>
+<h2>Service: {{ service.name }}</h2>
 <div class="large-6 columns">
 
 {% for parent in org.get_parents %}

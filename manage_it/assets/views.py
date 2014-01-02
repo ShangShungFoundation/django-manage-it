@@ -4,7 +4,7 @@ from markdown import markdown
 
 from django.utils import simplejson
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import HttpResponse
 
@@ -15,6 +15,7 @@ from assets.models import Item, AssetRequest
 from assets.forms import ItemForm, ResourcesSet, AssetRequestForm
 
 from incidents.forms import NewIncidentForm
+from organizations.user_access import staff_required
 
 
 def _out_dict(it):
@@ -46,16 +47,23 @@ def categories(request, org_url):
     return render(
         request,
         "assets/categories.html",
-        {"categories": categories},
+        dict(
+            categories=categories,
+            org_url=org_url,
+            org=request.organization,
+        ),
     )
 
 
+@login_required
+@staff_required
 def get(request, org_url,  slug):
     vars = dict(
         item=Item.objects.get(property_number=slug),
         data=get_answers(slug),
         new_incident_form=NewIncidentForm(),
         org_url=org_url,
+        org=request.organization,
     )
     return render(
         request,
@@ -64,7 +72,8 @@ def get(request, org_url,  slug):
     )
 
 
-@staff_member_required
+@login_required
+@staff_required
 def get_json(request, org_url, slug):
 
     it = Item.objects.select_related(
@@ -77,7 +86,8 @@ def get_json(request, org_url, slug):
     return HttpResponse(out, mimetype='application/json')
 
 
-@staff_member_required
+@login_required
+@staff_required
 def add(request, org_url, slug):
 
     # generqating SKU
@@ -114,6 +124,7 @@ def add(request, org_url, slug):
     vars["form"] = form
     vars["msgs"] = msgs
     vars["org_url"] = org_url
+    vars["org"] = request.organization
     return render(
         request,
         "assets/asset_form.html",
@@ -121,24 +132,26 @@ def add(request, org_url, slug):
     )
 
 
-@staff_member_required
+@login_required
+@staff_required
 def edit(request, org_url, slug):
     instance = get_object_or_404(Item, property_number=slug)
     submission = Submission.objects.get(slug=slug)
 
+    form = ItemForm(request.POST or None, instance=instance)
     detail_form = create_form(
         request,
         form=instance.item_class,
         submission=submission)
     resource_form = ResourcesSet(request.POST or None, request.FILES or None)
-    form = ItemForm(request.POST or None, instance=instance)
 
     msgs = []
-    if request.method == "POST":
-        if form.is_valid() and detail_form.is_valid():
-            detail_saved = detail_form.save()
-            form.save()
-            msgs.append("item SKU: %s updated" % detail_saved.slug)
+    if request.method == "POST" and form.is_valid() and detail_form.is_valid() and resource_form.is_valid():
+        form.save()
+        detail_saved = detail_form.save()
+        #resource = resource_form.save(commit=False)
+        #resource.item_id = instance.id
+        #msgs.append("item SKU: %s updated" % detail_saved.slug)
 
     vars = dict(
         item=instance,
@@ -146,6 +159,8 @@ def edit(request, org_url, slug):
         resource_form=resource_form,
         form=form,
         msgs=msgs,
+        org=request.organization,
+        org_url=org_url,
     )
     return render(
         request,
@@ -154,7 +169,8 @@ def edit(request, org_url, slug):
     )
 
 
-@staff_member_required
+@login_required
+@staff_required
 def delete(request, org_url, slug):
     instance = get_object_or_404(Item, property_number=slug)
     instance.delete()
@@ -163,7 +179,8 @@ def delete(request, org_url, slug):
     return redirect('catalog')
 
 
-@staff_member_required
+@login_required
+@staff_required
 def new_asset_request(request, org_url,):
     asset_request_form = AssetRequestForm(request.POST or None)
     if request.method == "POST" and asset_request_form.is_valid():
@@ -178,15 +195,24 @@ def new_asset_request(request, org_url,):
     return render(
         request,
         "assets/asset_request_form.html",
-        {"asset_request_form": asset_request_form},
+        dict(
+            asset_request_form=asset_request_form,
+            org=request.organization,
+            org_url=org_url,
+        ),
     )
 
 
-@staff_member_required
+@login_required
+@staff_required
 def asset_request(request, org_url, object_id):
     asset_request = get_object_or_404(AssetRequest, id=object_id)
     return render(
         request,
         "assets/asset_request.html",
-        {"asset_request": asset_request},
+        dict(
+            asset_request=asset_request,
+            org=request.organization,
+            org_url=org_url,
+        ),
     )

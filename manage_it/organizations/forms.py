@@ -24,6 +24,14 @@ class UserForm(forms.ModelForm):
             "is_superuser", "last_login")  # "groups"
 
 
+class EditUserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        exclude = (
+            "user_permissions", "date_joined", "password"
+            "is_superuser", "last_login")  # "groups"
+
+
 class GroupForm(forms.ModelForm):
     """
     """

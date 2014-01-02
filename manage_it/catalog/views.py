@@ -19,6 +19,8 @@ from models import Inventory
 
 
 def get(request, org_url, inventory_id):
+    organization = Organization.objects.get(url=org_url)
+    inventory = Inventory.objects.get(id=inventory_id)
 
     vars = search_form(
         request,
@@ -26,8 +28,10 @@ def get(request, org_url, inventory_id):
         Item.objects.select_related(
             "item_template", "location").filter(inventory_id=inventory_id)
     )
-    vars["org_url"] = org_url
 
+    vars["org_url"] = org_url
+    vars["org"] = organization
+    vars["inventory"] = inventory
     return render(
         request,
         "catalog/get.html",
@@ -85,15 +89,15 @@ def export_xsl(request, org_url):
         "description", "brand", "model", "notes"]
 
     if results["query"] and items:
-        # import ipdb; ipdb.set_trace()
-        # get properties from the last item
+        # get names from the last item
         extra_column_names = get_answers(
             items.reverse()[0].property_number).keys()
+        column_names = column_names + extra_column_names
 
     for i, name in enumerate(column_names):
-        ws.write(0, i, name, style1)
+        ws.write(0, i, name, style0)
 
-    # writing values 
+    #  writing values
     for j, item in enumerate(items):
         i = j + 1
         #import ipdb; ipdb.set_trace()
@@ -127,11 +131,7 @@ def export_xsl(request, org_url):
     query_to_remove = [
         u"item_set-TOTAL_FORMS", u"item_set-MAX_NUM_FORMS",
         u"item_set-INITIAL_FORMS"]
-    query_str = "_".join(
-        ["%s-%s" % (prop[0], prop[1])
-        for prop in request.GET.items()
-        if prop[1] != "0" or  prop[0] not in query_to_remove]
-        )
+    query_str = "_".join(["%s-%s" % (prop[0], prop[1]) for prop in request.GET.items() if prop[1] != "0" or prop[0] not in query_to_remove])
 
     name = "inventory_%s%s.xls" % (date.strftime("%d-%m-%Y"), query_str)
     wb.save(name)

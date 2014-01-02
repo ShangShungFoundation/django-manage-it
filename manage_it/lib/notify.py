@@ -4,8 +4,10 @@ from django.core.urlresolvers import reverse
 from django.template.loader import render_to_string
 from django.contrib.sites.models import Site
 
+from settings import NOTIFY_FROM_EMAIL
 
-# TODO integrate with notification group
+
+# TODO integrate with notification group from organization
 def notify_staff(obj):
 
     site = getattr(obj, "sites", None)
@@ -25,7 +27,7 @@ def notify_staff(obj):
     send_mail(
         subject,
         message,
-        NOTIFY_FROM_EMAIL,  
+        NOTIFY_FROM_EMAIL,
         NOTIFY_MANAGERS + [obj.assigned_to.email],
         fail_silently=False
     )

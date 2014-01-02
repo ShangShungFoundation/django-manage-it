@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from datetime import timedelta
 from django.utils import timezone
 
@@ -10,26 +11,20 @@ from assets.models import Item
 from lib.model_diff_mixin import ModelDiffMixin
 from organizations.models import Organization
 
-STATUSES = (
-    (1, "open"),
-    (2, "in work"),
-    (3, "closed"),
-    (4, "defunkt"),
-    (5, "duplicate"),
-)
+from settings import STATUSES, RESPONSE_MATRIX
 
 IMPACT_GRADES = [
-    (1, "High"),
-    (2, "Medium"),
-    (3, "Low"),
+    (1, _("High")),
+    (2, _("Medium")),
+    (3, _("Low")),
 ]
 
 PRIORITY_GRADES = (
-    (1, "Critical"),
-    (2, "High"),
-    (3, "Moderate"),
-    (4, "Low"),
-    (5, "Planning"),
+    (1, _("Critical")),
+    (2, _("High")),
+    (3, _("Moderate")),
+    (4, _("Low")),
+    (5, _("Planning")),
 )
 
 PRORITY_MATRIX = dict(
@@ -45,19 +40,10 @@ PRORITY_MATRIX = dict(
 )
 
 
-RESPONSE_MATRIX = dict(
-    _1=({min: 30}, {min: 30}, {min: 30, "perma": True}),
-    _2=({"hours": 1}, {"hours": 1}, {min: 30, "perma": True}),
-    _3=({"hours": 4}, {"hours": 2}, {"hours": 1, "perma": True}),
-    _4=({"days": 2}, {"days": 1}, {"hours": 2}),
-    _5=({"days": 5}, {"days": 2}, {"days": 2}),
-)
-
-
 USERS_TYPES = (
-    (1, "Standart"),
-    (2, "Top"),
-    (3, "VIP"),
+    (1, _("Standart")),
+    (2, _("Top")),
+    (3, _("VIP")),
 )
 
 
@@ -68,7 +54,7 @@ class IncidentManager(models.Manager):
 
 class Incident(models.Model, ModelDiffMixin):
     """
-    Rufly following ITIL Incident Mangement
+    Ruthly following ITIL Incident Mangement
     https://wiki.servicenow.com/index.php?title=ITIL_Incident_Management
     """
     objects = IncidentManager()
@@ -182,10 +168,11 @@ class IncidentFolowupManager(models.Manager):
         return super(
             IncidentFolowupManager, self).get_queryset().order_by("created_at")
 
+
 INCIDENT_STATUS_TYPES = (
-    (1, "status change"),
-    (2, "comment"),
-    (3, "proposal"),
+    (1, _("status change")),
+    (2, _("comment")),
+    (3, _("proposal")),
 )
 
 
@@ -193,13 +180,14 @@ class IncidentFollowup(models.Model):
 
     objects = IncidentFolowupManager()
 
-    incident = models.ForeignKey(Incident, verbose_name=_(u"item"))
+    incident = models.ForeignKey(
+        Incident, verbose_name=_(u"item"))
     status_change = models.TextField(
         _(u"status change"),
         blank=True, null=True,)
 
     created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name=_(u"created_at"))
+        _(u"created_at"), auto_now_add=True)
     created_by = models.ForeignKey(User)
 
     observations = models.TextField(_(u"observations"),)

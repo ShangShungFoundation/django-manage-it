@@ -213,7 +213,8 @@ class Person(models.Model):
 
 
 class Owner(models.Model):
-    name = models.CharField(_(u"last name"), max_length=32)
+    name = models.CharField(
+        _(u"last name"), max_length=32)
     email = models.EmailField(
         _(u"second last name"),
         max_length=32, blank=True, null=True)
@@ -229,11 +230,13 @@ RESOURCE_TYPES = (
 
 
 class Resource(models.Model):
-    item = models.ForeignKey(Item, verbose_name=_(u"item"))
+    item = models.ForeignKey(
+        Item, verbose_name=_(u"item"))
     resurce_type = models.SmallIntegerField(
         _(u"resource type"),
         choices=RESOURCE_TYPES)
-    name = models.CharField(_(u"name"), max_length=32)
+    name = models.CharField(
+        _(u"name"), max_length=32)
     file = models.FileField(
         _("file"),
         upload_to="files",

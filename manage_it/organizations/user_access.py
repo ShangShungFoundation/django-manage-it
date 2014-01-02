@@ -40,7 +40,7 @@ def required_member(parameter=None):
                 return redirect(REDIRECT_URL)
 
             user_groups = get_user_groups(request.organization, request.user)
-            user_roles = user_groups.values_list("role")
+            user_roles = user_groups.values_list("role", flat=True)
             request.user.roles = user_roles
 
             if request.user.is_superuser:

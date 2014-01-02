@@ -8,7 +8,10 @@ from organizations.models import Organization
 from organizations.user_access import staff_required
 
 from models import Incident, IncidentFollowup
-from forms import NewIncidentForm, IncidentFollowupFormAdmin, IncidentFollowupForm
+from forms import (
+    NewIncidentForm,
+    IncidentFollowupFormAdmin,
+    IncidentFollowupForm)
 
 
 @login_required
@@ -43,8 +46,12 @@ def get(request, org_url, object_id):
     return render(
         request,
         "incidents/get.html",
-        {"incident": incident,
-        "new_incident_followup_form": incident_followup_form},
+        dict(
+            incident=incident,
+            new_incident_followup_form=incident_followup_form,
+            org_url=org_url,
+            org=request.organization,
+        ),
     )
 
 
@@ -56,8 +63,8 @@ def list(request, org_url):
     vars = dict(
         incidents=Incident.objects.all(),
         new_incident_form=new_incident_form,
-        organization_url=org_url,
-        organization=organization,
+        org_url=org_url,
+        org=organization,
     )
 
     return render(
@@ -86,7 +93,8 @@ def new(request, org_url):
     vars = {
         "msgs": msgs,
         "new_incident_form": new_incident_form,
-        "organization_url": organization.url,
+        "org_url": org_url,
+        "org": organization,
     }
 
     return render(request, "incidents/new.html", vars)

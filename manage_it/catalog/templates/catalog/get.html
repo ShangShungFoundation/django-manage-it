@@ -4,7 +4,7 @@
 {% block content %}
 {% autopaginate queryset 30 %}
 <p><a href="{% url "asset-request-form" org_url %}" class="tiny button right">Asset Request</a></p>
-<h2>Assets</h2>
+<h2>Inventory: {{ inventory }}</h2>
 
 <div class="large-2 columns"> 
     <h4>Asset class</h4>
@@ -79,7 +79,7 @@
 		<li><button>SEARCH</button></li>
 	</ul>
 	{% csrf_token %}
-	<p><a href="{# url "export_assets_xsl" org_url #}?{{ query }} " class="tiny.button" >export Excel</a></p>
+	<p><a href="{% url "export_assets_xsl" org_url %}?{{ query }} " class="tiny.button" >export Excel</a></p>
 </form>
 
 {% endblock content %}

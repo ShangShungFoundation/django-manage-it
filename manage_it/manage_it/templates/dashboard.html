@@ -1,21 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h2>Dashboard</h2>
 <div class="large-6 columns"> 
-    <h4><a href="{% url 'catalog' %}">Problematic Assets</a></h4>
+    <h4>Problematic Assets</h4>
     <ul>
         {% for asset in asset_watched %}
         <li> 
-            <a href="{% url 'asset_view' asset.property_number  %}">{{ asset }} </a> 
+            <a href="{% url 'asset_view' org_url asset.property_number  %}">{{ asset }} </a> 
         </li>
         {% endfor %}
     </ul>
     
-    <h4><a href="{% url 'catalog' %}">Asset Requests</a></h4>
+    <h4>Asset Requests</h4>
     <ul>
         {% for asset in asset_requested %}
         <li> 
-            <a href="{% url 'asset-request' asset.id %}">{{ asset }} </a> 
+            <a href="{% url 'asset-request' org_url asset.id %}">{{ asset }} </a> 
         </li>
         {% endfor %}
     </ul>

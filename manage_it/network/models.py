@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from assets.models import Item
+from catalog.models import Inventory
 
 CONNECTION_TYPES = (
     (1, "Ethernet 1Gb"),
@@ -18,6 +19,7 @@ class Network(models.Model):
     """
     ItemConnection for networked assets
     """
+    inventory = models.ForeignKey(Inventory, verbose_name=_(u"inventory"))
     name = models.CharField(_(u"name"), max_length=100)
     description = models.TextField(blank=True, null=True)
     ip_range = models.CharField(
@@ -58,9 +60,9 @@ class Connection(models.Model):
 
 
 class Interface(models.Model):
-    mac = models.CharField(blank=True, null=True, max_length=79)
+    mac = models.CharField(_(u"MAC"), blank=True, null=True, max_length=79)
     device = models.ForeignKey(Item, verbose_name=_(u"device"))
     description = models.TextField(_(u"description"), blank=True, null=True)
 
     def __unicode__(self):
-        return self.device.name
+        return self.mac
