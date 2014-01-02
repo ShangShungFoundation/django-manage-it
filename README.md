@@ -2,9 +2,10 @@
 
 ##Basic App Suite for IT Management for organizations
  
-IT tool belt implementing best practices. Out of the box supports multiple flat or hierarchical organizations. Each organization can have difrent users with defined roles. Same user may belong to diferent organizations performing diferent roles.
+IT tool belt. Out of the box supports multiple flat or hierarchical organizations. Each organization can have difrent users with defined roles. 
 
-Management Dashboard with most urgent metrics of IT situation like: 
+Contains Management Dashboard with metrics for IT situation like: 
+
 * Problematic Assets
 * Pending Asset Requests
 * Unresolved Incidents
@@ -12,9 +13,10 @@ Management Dashboard with most urgent metrics of IT situation like:
 
 ###Organization App
 This app should reflect organization structure. It manages users and groups.
-Groups gather users with special defined roles. This app is necessary also for granting user access to manage other application according to their roles.
-Users may access only resources related with organization to which they belong ("Staff Group"). Users belonging to "Admin Group" may manage applications on their organization level and all organizations subscribed to their organization.
+Groups gather users with special defined roles. App is necessary for granting user access to manage other application according to user roles.
+Users may access only resources related with organization to which they belong ("Staff Group"). Users belonging to "Admin Group" may manage applications on their organization level and all organizations subscribed to their organization. Same user may belong to diferent organizations performing diferent roles. Its posible to create users who belong to given group and in the same time are not members of staff group (can be usefull for consultants, etc)
 
+App allows:
 * Create any hierarchy of organizations
 * Create and manage users related with organization
 * Create and manage groups related with IT roles
@@ -79,12 +81,11 @@ Install requirements:
 
     pip install -e requirements.txt
 
-In "INSTALLED_APPS" in settings.py file must be present:
+In "INSTALLED_APPS" in `manage_it/settings.py` file must be present:
     
     # core apps
     'catalog',
     'assets',
-    'pagination',
     'incidents',
     'network',
     'services',
@@ -92,8 +93,8 @@ In "INSTALLED_APPS" in settings.py file must be present:
     'notifications',
 
     # dependency apps
+    'pagination',
     'dataforms',
-    'debug_toolbar',
 
 Add to 'urlpatterns' in urls.py file:
     
@@ -122,15 +123,47 @@ Create tables etc.:
 
     python manage.py syncdb
 
+You may preload dataforms with forms for assets and services:
+
+    python manage.py dataload initial_data.json
+
 Settings
 --------
+You can personalize follwing setttings in `manage_it/settings.py`:
+
+`ORG_RESPONSE_MATRIX` defines deadlines for incident resolution. Numeric key relates to `PRIORITY_GRADES`, position in tuple relates to `USERS_TYPES`. 
+
+    ORG_RESPONSE_MATRIX = dict(
+        _1=({min: 30}, {min: 30}, {min: 30, "perma": True}),
+        _2=({"hours": 1}, {"hours": 1}, {min: 30, "perma": True}),
+        _3=({"hours": 4}, {"hours": 2}, {"hours": 1, "perma": True}),
+        _4=({"days": 2}, {"days": 1}, {"hours": 2}),
+        _5=({"days": 5}, {"days": 2}, {"days": 2}),
+    )
+
+    ORG_STATUSES = (
+        (1, "open"),
+        (2, "in work"),
+        (3, "closed"),
+        (4, "defunkt"),
+        (5, "duplicate"),
+    )
+
+    ORG_SERVICE_TYPES = (
+        (1, _("Communications")),
+        (2, _("Security")),
+        (3, _("Servers, Data, Backup")),
+        (4, _("Software & Business Applications")),
+        (5, _("Web & Collaboration")),
+        (6, _("Email & Collaboration")),
+    )
 
 #TODO
 Not in order of importance or priority
 
 * [*] Implement Organizations
 * [*] User permissions
-* [ ] Documentation for users and managers
+* [ ] Documentation for users, managers and administrators
 * [*] Relate network connection to inventory
 * [ ] Build user interace to create and edit network intrfaces in network app
 * [ ] Build user interace to create and edit connections in network app
@@ -144,6 +177,28 @@ Not in order of importance or priority
 * [ ] Custom defined workflows for provisions. incident management etc
 
 #LICENSE
+```
+The MIT License (MIT)
+
+Copyright (c) 2013 Kamil Selwa
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
 
 #Author
 Kamil Selwa selwak@gmail.com
