@@ -74,10 +74,10 @@ Agregates metrics from other apps and displays comprehensive view on actual IT s
 * Incident Followup
 
 
-Installing
-----------
+Installation
+------------
 Assuming that you got virtualenv (python virtual retirement) created and activated.
-Project has been tested againts Django 1.5
+Project has been tested againts Django 1.5 and Python 2.7
 
 Install via pip:
 
@@ -102,7 +102,7 @@ In "INSTALLED_APPS" in `manage_it/settings.py` file must be present:
     'pagination',
     'dataforms',
 ```
-Add to 'urlpatterns' in urls.py file:
+Add to 'urlpatterns' in `manage_it/urls.py` file:
 ```python
     ORG_URL = "(?P<org_url>.+)/"
     
