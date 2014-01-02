@@ -82,7 +82,7 @@ Install requirements:
     pip install -e requirements.txt
 
 In "INSTALLED_APPS" in `manage_it/settings.py` file must be present:
-    
+```python
     # core apps
     'catalog',
     'assets',
@@ -95,9 +95,9 @@ In "INSTALLED_APPS" in `manage_it/settings.py` file must be present:
     # dependency apps
     'pagination',
     'dataforms',
-
+```
 Add to 'urlpatterns' in urls.py file:
-    
+```python
     ORG_URL = "(?P<org_url>.+)/"
     
     url(r'^$',
@@ -118,7 +118,7 @@ Add to 'urlpatterns' in urls.py file:
         include('services.urls')),
     url(r'^%sorganization/' % ORG_URL,
         include('organizations.urls')),
-    
+```
 Create tables etc.:
 
     python manage.py syncdb
@@ -132,7 +132,7 @@ Settings
 You can personalize follwing setttings in `manage_it/settings.py`:
 
 `ORG_RESPONSE_MATRIX` defines deadlines for incident resolution. Numeric key relates to `PRIORITY_GRADES`, position in tuple relates to `USERS_TYPES`. 
-
+```python
     ORG_RESPONSE_MATRIX = dict(
         _1=({min: 30}, {min: 30}, {min: 30, "perma": True}),
         _2=({"hours": 1}, {"hours": 1}, {min: 30, "perma": True}),
@@ -157,7 +157,7 @@ You can personalize follwing setttings in `manage_it/settings.py`:
         (5, _("Web & Collaboration")),
         (6, _("Email & Collaboration")),
     )
-
+```
 #TODO
 Not in order of importance or priority
 
