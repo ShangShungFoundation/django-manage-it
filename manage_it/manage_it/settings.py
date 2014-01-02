@@ -191,10 +191,19 @@ LOGGING = {
     }
 }
 
-# debug toolbar
-INTERNAL_IPS = (
-    '127.0.0.1', '192.168.100.41', '192.168.100.22', '192.168.100.144')
+# importing local settings
+try:
+    from settings_local import *
+except ImportError:
+    import sys
+    sys.stderr.write("local settings not available\n")
+else:
+    try:
+        INSTALLED_APPS += LOCAL_INSTALLED_APPS
+    except NameError:
+        pass
 
-LIMIT_ASIGNED_USERS = []
-
-from settings_local import *
+    try:
+        MIDDLEWARE_CLASSES += LOCAL_MIDDLEWARE_CLASSES
+    except NameError:
+        pass
