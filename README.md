@@ -81,6 +81,8 @@ Installation
 Assuming that you got virtualenv (python virtual retirement) created and activated.
 Project has been tested againts Django 1.5 and Python 2.7
 
+As default project use SQLite database. Set another one if you need in `manage_it/settings.py`.
+
 Install via pip:
 
     pip install -e git+git@github.com:ShangShungInstitute/django-it-manager.git#egg=manager-it
@@ -89,45 +91,7 @@ Install requirements:
 
     pip install -e requirements.txt
 
-In "INSTALLED_APPS" in `manage_it/settings.py` file must be present:
-```python
-    # core apps
-    'catalog',
-    'assets',
-    'incidents',
-    'network',
-    'services',
-    'organizations',
-    'notifications',
-
-    # dependency apps
-    'pagination',
-    'dataforms',
-```
-Add to 'urlpatterns' in `manage_it/urls.py` file:
-```python
-    ORG_URL = "(?P<org_url>.+)/"
-    
-    url(r'^$',
-        "organizations.views.list_organizations", name='home'),
-    url(r'^admin/',
-        include(admin.site.urls)),
-    url(r'^%sdashboard/' % ORG_URL,
-        "manage_it.views.dashboard", name='dashboard'),
-    url(r'^%sinventory/' % ORG_URL,
-        include("catalog.urls")),
-    url(r'^%sassets/' % ORG_URL,
-        include("assets.urls")),
-    url(r'^network/',
-        include("network.urls")),
-    url(r'^%sincidents/' % ORG_URL,
-        include("incidents.urls")),
-    url(r'^%sservices/' % ORG_URL,
-        include('services.urls')),
-    url(r'^%sorganization/' % ORG_URL,
-        include('organizations.urls')),
-```
-Create tables etc.:
+Create DB tables etc.:
 
     python manage.py syncdb
 
