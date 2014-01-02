@@ -129,8 +129,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
-    "allauth.account.context_processors.account",
-    "allauth.socialaccount.context_processors.socialaccount",
+    #"allauth.account.context_processors.account",
+    #"allauth.socialaccount.context_processors.socialaccount",
 )
 
 INSTALLED_APPS = (
@@ -140,24 +140,24 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dataforms',
+    'django.contrib.admin',
+    # core apps
     'catalog',
     'assets',
-    'django.contrib.admin',
-    'debug_toolbar',
     'pagination',
     'incidents',
     'network',
-    'tastypie',
-
     'services',
     'organizations',
     'notifications',
+    # dependencies
+    'dataforms',
+    #'tastypie',
     #allauth
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
+    #'allauth',
+    #'allauth.account',
+    #'allauth.socialaccount',
+    #'allauth.socialaccount.providers.google',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
