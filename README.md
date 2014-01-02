@@ -4,7 +4,7 @@
  
 IT tool belt implementing some of best practices for IT management. Is in early beta stage so there can be some "rough edges" but it is already useful.
 
-Interface is developed using Zurb Foudation framework http://foundation.zurb.com/ so app can be used on mobile devices.
+Interface is developed using responsive Zurb Foudation framework http://foundation.zurb.com/ so app can be used on mobile devices.
 
 Currently implemeted apps:
 
