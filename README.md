@@ -26,6 +26,7 @@ App allows:
 * Ability to retire & reactivate inventory assets.
 * Assign assets to one or more users.
 * Assets may have different owners.
+* Asset records may have attached files with drivers, manulas, configuration documents etc
 * Freely defined properties for each asset class.
 * User defined locations (with precise geographic position). 
 * Search utility
