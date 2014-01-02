@@ -1,4 +1,3 @@
-
 from setuptools import setup, find_packages
 
 setup(
@@ -19,6 +18,6 @@ setup(
                  'Operating System :: OS Independent',
                  'Programming Language :: Python',
                  'Topic :: Utilities'],
-    license='BSD',
+    license='MIT',
     #test_suite = "contenta.tests",
 )
