@@ -93,11 +93,11 @@ Install dependency requirements:
 
 Create DB tables etc.:
 
-    python manage.py syncdb
+    python manager_it/manager_it/manage.py syncdb
 
 You may preload dataforms with forms for assets and services:
 
-    python manage.py dataload initial_data.json
+    python manager_it/manager_it/manage.py dataload initial_data.json
 
 Settings
 --------
