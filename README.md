@@ -69,10 +69,11 @@ Users may access only resources related with organization to which they belong (
 Installing
 ----------
 Assuming that you got virtualenv (python virtual retirement) created and activated.
+Project has been tested againts Django 1.5
 
 Install via pip:
 
-    pip install -e git+git@github.com:ShangShungInstitute/django-it-manager.git#egg=it-manager
+    pip install -e git+git@github.com:ShangShungInstitute/django-it-manager.git#egg=manager-it
 
 Install requirements:
 
@@ -94,7 +95,7 @@ In "INSTALLED_APPS" in settings.py file must be present:
     'dataforms',
     'debug_toolbar',
 
-Add to 'urlpatterns' (at the end) urls.py file:
+Add to 'urlpatterns' in urls.py file:
     
     ORG_URL = "(?P<org_url>.+)/"
     
@@ -121,12 +122,18 @@ Create tables etc.:
 
     python manage.py syncdb
 
+Settings
+--------
+
 #TODO
 Not in order of importance or priority
 
 * [*] Implement Organizations
 * [*] User permissions
 * [ ] Documentation for users and managers
+* [*] Relate network connection to inventory
+* [ ] Build user interace to create and edit network intrfaces in network app
+* [ ] Build user interace to create and edit connections in network app
 * [ ] Billing
 * [ ] Network monitoring
 * [ ] Refactor Organization as separate project
