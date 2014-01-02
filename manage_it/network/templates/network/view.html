@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="large-8 columns"> 
+    <h2>Networks</h2>
+    <ul id="mark">
+        <li>show: <li>
+        <li><a id="location" href="#">location</a></li>
+        <li><a id="state" href="#">state</a></li>
+        <li><a id="owner" href="#">owner</a></li>
+        <li><a id="ip" href="#">visible</a></li>
+    </ul>
+    <div id="vis"></div>
+</div>
+
+<div class="large-4 columns"> 
+
+    
+    <div id="info">
+    </div>
+    
+    <div id="properties">
+    </div>
+    
+
+</div>
+
+
+{% endblock content %}
+
+{% block javascript %}
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="{% url 'assets_json' %}"></script>
+<script src="{% url 'connections_json' %}"></script>
+<script src="{{ STATIC_URL }}js/coffee-script.js"></script>
+<script src="{{ STATIC_URL }}js/Tooltip.js"></script>
+<script src="{% url 'scan_network' 1 %}"></script>
+<script type="text/coffeescript" src="{{ STATIC_URL }}js/network.coffee"></script>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+    <h2><a href="{{ service.get_absolute_url }}">Service: {{ service.name }}</a></h2>
+    <h3>SKU: {{ sku }}</h3>
+    <div class="large-6 columns">
+
+        <h5>Service Scope</h5>
+        <p>{{ sku.service_scope }}</p>
+
+
+        {% if sku.customer_requirements %}
+        <h5>Customer Requirements</h5>
+        <p>{{ sku.customer_requirements }}</p>
+        {% endif %}
+
+        {% if sku.provider_requirements %}
+        <h5>Provider Requirements</h5>
+        <p>{{ sku.provider_requirements }}</p>
+        {% endif %}
+
+        {% if sku.coverege_time %}
+        <h5>Coverge Time</h5>
+        <p>{{ sku.coverege_time }}</p>
+        {% endif %}
+
+        {% if sku.maintenance %}
+        <h5>Maitenance Management</h5>
+        <p>{{ sku.maintenance }}</p>
+        {% endif %}
+
+        {% if sku.reviewing %}
+        <h5>Reporting, Reviewing and Auditin</h5>
+        <p>{{ sku.reviewing }}</p>
+        {% endif %}
+    </div>
+
+    <div class="large-6 columns">
+        <p>Service manager: {{ service.manager }} <a href="mail:{{ service.manager.email }}">{{ service.manager.email }}</a></p>
+        {% if service.location %}<p>Service location: {{ service.location }}</p>{% endif %}
+        
+        {% if service.depends_on.all %}
+        <h4>Service relays on:</h4>
+        <ul>
+            {% for dependency in service.depends_on.all %}
+            <li>{{ dependency }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        
+        <h4>User Groups</h4>
+        <ul>
+            {% for group in service.user_groups.all %}
+            <li>{{ group }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+<div class="large-6 columns">
+    <h3>SKU: properties</h3>
+    {% for sku_contract in sku_properties %}
+    <ul>
+        {% for name, value in sku_contract.items %}
+        <li>{{ name }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+    
+    <h3>Documents</h3>
+    <ul>
+        {% for doc in sku.documents_set.all %}
+        <li><a href="{{ doc.file }}">{{ doc }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock content %}
+
+
+{% block javascript %}
+
+{% endblock %}
+

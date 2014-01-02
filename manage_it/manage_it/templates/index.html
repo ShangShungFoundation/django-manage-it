@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="large-6 columns"> 
+    <h4><a href="{% url 'catalog' %}">Problematic Assets</a></h4>
+    <ul>
+        {% for asset in asset_watched %}
+        <li> 
+            <a href="{% url 'asset_view' asset.property_number  %}">{{ asset }} </a> 
+        </li>
+        {% endfor %}
+    </ul>
+    
+    <h4><a href="{% url 'catalog' %}">Asset Requests</a></h4>
+    <ul>
+        {% for asset in asset_requested %}
+        <li> 
+            <a href="{% url 'asset-request' asset.id %}">{{ asset }} </a> 
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="large-6 columns"> 
+    <h4>Incidents</h4>
+    <ul>
+        {% for incident in incidents_watched %}
+        <li> 
+            <a href="{{ incident.get_absolute_url }}">{{ incident }} </a> 
+        </li>
+        {% endfor %}
+    </ul>
+    
+    <h4>Incident Followup</h4>
+    <ul>
+        {% for followup in incidents_followups %}
+        <li> 
+            <a href="{{ followup.get_absolute_url }} </a> 
+        </li>">{{ followup }} </a> 
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock content %}

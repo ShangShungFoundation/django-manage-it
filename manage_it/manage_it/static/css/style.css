@@ -1,0 +1,56 @@
+
+
+html {
+    background: #E6EEF2;
+}
+h3 { clear: both}
+
+form li {
+    list-style: none;
+}
+dl { clear: both }
+dl dd { float: left; clear: both ; margin: 0; width:10em }
+dl dt { margin: 0;}
+
+form.search .errorlist,
+form.search #id_item_set-0-DELETE,
+label[for=id_item_set-0-DELETE] {
+    display: none;
+}
+
+.helptext {
+    font-size: small;
+    font-style: italic;
+    color: gray;
+}
+
+.errorlist {
+    font-size: small;
+    color: red;
+}
+
+#mark li{
+    list-style: none;
+    float: left;
+    padding-right: 1em;
+}
+
+/* ----------------- STATUS ------------------ */
+.status_1 { background: #47C957; color: white }
+.status_2 { background: orange; color: white }
+
+.priority_1 { color: white }
+.priority_2 { color: red }
+.priority_3 { color: orange }
+.priority_4 { color: gray }
+
+/* ----------------- FORM FIX ------------------ */
+.selector-available h2,
+.selector-chosen h2{
+    font-size: 1em; 
+    margin: 0;
+}
+
+select {
+    border: 1px solid #333;
+}

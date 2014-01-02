@@ -1,4 +1,6 @@
 *.pyc
 env/*
 doc/*
-inventory/sqlite.db
+manage_it/sqlite.db
+manage_it/manage_it/settings_local.py
+manage_it/manage_it/media/*

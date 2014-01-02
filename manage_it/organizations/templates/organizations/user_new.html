@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<h2>{{ org.name }}</h2>
+<h3>New User</h3>
+
+
+<form method="post" enctype="multipart/form-data">
+<div class="row">
+    <div class="large-12 columns">
+            {{ form.as_p }}
+            {{ add_form.as_p }}
+    </div>
+
+    <div class="large-12 columns"><button class="right">SUBMIT</button></div>
+</div>
+{% csrf_token %}
+</form>
+{% endblock content %}
+

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h2>{{ org }}</h2>
+
+<div class="row">
+    <div class="large-6 columns">
+        <h4>{{ org.description }}</h4>
+        {% if org.manager %}<p>manager: {{ org.manager }} {{ org.manage.email }}</p>{% endif %}
+        <p>
+        {% if org.phone_number1 %}tel: {{ org.phone_number1 }}{% endif %}
+        {% if org.email %}email: {{ org.email }} {% endif %}
+        </p>
+        
+        <ul>
+        {% for suborg in suborgs %}
+            <li><h4><a href="/{{ suborg.url }}/organization/">{{ suborg }}</a><h4></li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="large-6 columns">
+        <h3>Groups</h3>
+        <ul>
+        {% for org_group in org.related_groups.all %}
+            <li>
+                <h4>
+                    {% if "admin_group" in request.user.roles or request.user.is_superuser %}
+                    <a href="{% url 'set_organization_group' org_url org_group.role  %}">{{ org_group.group }}</a>
+                    {% else %}
+                    {{ group }}
+                    {% endif %}
+                </h4>
+                <ul>
+                    {% for member in org_group.group.user_set.all %}
+                    <li> 
+                        {% if "admin_group" in request.user.roles or request.user.is_superuser %}
+                        <a href="{% url 'edit_user' org_url member.id  %}">{{ member }}</a>
+                        {% else %}
+                        <a href="{% url 'view_user' org_url member.id  %}">{{ member }}</a>
+                        {% endif %}
+                        <a href="mailto:{{ member.email }}">{{ member.email }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+
+</form>
+{% endblock content %}

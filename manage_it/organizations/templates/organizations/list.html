@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h2>Supported Organizations</h2>
+
+<div class="row">
+    <div class="large-12 columns">
+        <h3>Welcome</h3>
+        <p>To access content related with organizations you must be logged it using your personal credentials. If you don't have them please contact the administrator.</p>
+        {% for org in orgs %}
+        <ul>
+            <li><h4><a href="/{{ org.url }}/organization/">{{ org }}</a><h4></li>
+        </ul>
+        {% endfor %}
+    </div>
+</div>
+
+</form>
+{% endblock content %}
