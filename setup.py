@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     name='django-it-manager',
     version='0.1b',
-    description='Event Registration in Django',
+    description='IT Management Suite Django',
     author='Kamil Selwa',
     author_email='selwak@gmail.com',
     url='https://github.com/ShangShungInstitute/django-it-manager.git',
