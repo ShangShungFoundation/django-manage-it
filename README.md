@@ -2,21 +2,17 @@
 
 ##Basic App Suite for IT Management for organizations
  
-IT tool belt. Out of the box supports multiple flat or hierarchical organizations. Each organization can have difrent users with defined roles. 
-
-Contains Management Dashboard with metrics for IT situation like: 
-
-* Problematic Assets
-* Pending Asset Requests
-* Unresolved Incidents
-* Incident Followup
+IT tool belt implementing some of best practices for IT management.
+Currntly contains apps:
 
 ###Organization App
-This app should reflect organization structure. It manages users and groups.
+This app should reflect organization structure. Stucture can be horizontal or herachical with any number of related organization units.
+Organization manages users and groups.
 Groups gather users with special defined roles. App is necessary for granting user access to manage other application according to user roles.
-Users may access only resources related with organization to which they belong ("Staff Group"). Users belonging to "Admin Group" may manage applications on their organization level and all organizations subscribed to their organization. Same user may belong to diferent organizations performing diferent roles. Its posible to create users who belong to given group and in the same time are not members of staff group (can be usefull for consultants, etc)
+Users may access only resources related with organization to which they belong ("Staff Group"). Users belonging to "Admin Group" may manage applications on their organization level and all organizations belonging to their organization. Same user may belong to diferent organizations and groups performing diferent roles. Its posible to create users who belong to given group and in the same time are not member of staff group (can be usefull for consultants, etc)
 
 App allows:
+
 * Create any hierarchy of organizations
 * Create and manage users related with organization
 * Create and manage groups related with IT roles
@@ -24,7 +20,7 @@ App allows:
 
 ###Assets Inventory App
 
-* Multiple inventories for each organization
+* Supports multiple inventories for each organization
 * Create asset templates to allow for easier adding of individual items of the same kind.
 * Ability to retire & reactivate inventory assets.
 * Assign assets to one or more users.
@@ -55,7 +51,6 @@ App allows:
 * Automatic incident resolution deadline evaluation based on user status
 * Tightly integrated with Assets Inventory app.
 * Incident submission 
-* Automatic evaluation of incident priority based on impact and urgency metrics
 * Incident Follow Up - keep track of all changes of state and observations following incident
 * Change of status of incident triggers email notifications
 
@@ -63,10 +58,19 @@ App allows:
 ###Service Management App
 
 * Based on concept of SLA (Service Level Agreement)
-* Service dependence
+* Implements Service dependence
 * Each service may have many SLAs with different providers
 * SLA may contain few personalized classes of properties
 * SLA may have attached files with contract, documentation, manuals etc
+
+###Management Dashboard
+Agregates metrics from other apps and displays comprehensive view on actual IT status. 
+
+* Problematic Assets
+* Pending Asset Requests
+* Unresolved Incidents
+* Incident Followup
+
 
 Installing
 ----------
@@ -133,30 +137,30 @@ You can personalize follwing setttings in `manage_it/settings.py`:
 
 `ORG_RESPONSE_MATRIX` defines deadlines for incident resolution. Numeric key relates to `PRIORITY_GRADES`, position in tuple relates to `USERS_TYPES`. 
 ```python
-    ORG_RESPONSE_MATRIX = dict(
-        _1=({min: 30}, {min: 30}, {min: 30, "perma": True}),
-        _2=({"hours": 1}, {"hours": 1}, {min: 30, "perma": True}),
-        _3=({"hours": 4}, {"hours": 2}, {"hours": 1, "perma": True}),
-        _4=({"days": 2}, {"days": 1}, {"hours": 2}),
-        _5=({"days": 5}, {"days": 2}, {"days": 2}),
-    )
+ORG_RESPONSE_MATRIX = dict(
+    _1=({min: 30}, {min: 30}, {min: 30, "perma": True}),
+    _2=({"hours": 1}, {"hours": 1}, {min: 30, "perma": True}),
+    _3=({"hours": 4}, {"hours": 2}, {"hours": 1, "perma": True}),
+    _4=({"days": 2}, {"days": 1}, {"hours": 2}),
+    _5=({"days": 5}, {"days": 2}, {"days": 2}),
+)
 
-    ORG_STATUSES = (
-        (1, "open"),
-        (2, "in work"),
-        (3, "closed"),
-        (4, "defunkt"),
-        (5, "duplicate"),
-    )
+ORG_STATUSES = (
+    (1, "open"),
+    (2, "in work"),
+    (3, "closed"),
+    (4, "defunkt"),
+    (5, "duplicate"),
+)
 
-    ORG_SERVICE_TYPES = (
-        (1, _("Communications")),
-        (2, _("Security")),
-        (3, _("Servers, Data, Backup")),
-        (4, _("Software & Business Applications")),
-        (5, _("Web & Collaboration")),
-        (6, _("Email & Collaboration")),
-    )
+ORG_SERVICE_TYPES = (
+    (1, _("Communications")),
+    (2, _("Security")),
+    (3, _("Servers, Data, Backup")),
+    (4, _("Software & Business Applications")),
+    (5, _("Web & Collaboration")),
+    (6, _("Email & Collaboration")),
+)
 ```
 #TODO
 Not in order of importance or priority
@@ -165,7 +169,8 @@ Not in order of importance or priority
 * [*] User permissions
 * [ ] Documentation for users, managers and administrators
 * [*] Relate network connection to inventory
-* [ ] Build user interace to create and edit network intrfaces in network app
+* [ ] Integrate services to incident managent app so incidents can reffer to services
+* [ ] Build user interace to create and edit network interfaces in network app
 * [ ] Build user interace to create and edit connections in network app
 * [ ] Billing
 * [ ] Network monitoring
@@ -176,7 +181,7 @@ Not in order of importance or priority
 * [ ] Auditing 
 * [ ] Custom defined workflows for provisions. incident management etc
 
-#LICENSE
+#Licence
 ```
 The MIT License (MIT)
 
