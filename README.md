@@ -2,18 +2,19 @@
 
 ##Basic App Suite for IT Management for organizations
  
-IT tool belt implementing best practices. Out of the box supports multiple flat or hierarchical organizations. Each organization can have difrent users with defined roles. Same user may belong to diferent organizations performing diferent roles.
+IT tool belt implementing some of best practices for IT management. Is in early beta stage so there can be some "rough edges" but it is already useful.
 
-Management Dashboard with most urgent metrics of IT situation like: 
-* Problematic Assets
-* Pending Asset Requests
-* Unresolved Incidents
-* Incident Followup
+Interface is developed using responsive Zurb Foudation framework http://foundation.zurb.com/ so app can be used on mobile devices.
+
+Currently implemeted apps:
 
 ###Organization App
-This app should reflect organization structure. It manages users and groups.
-Groups gather users with special defined roles. This app is necessary also for granting user access to manage other application according to their roles.
-Users may access only resources related with organization to which they belong ("Staff Group"). Users belonging to "Admin Group" may manage applications on their organization level and all organizations subscribed to their organization.
+This app should reflect organization structure. Stucture can be horizontal or hierarchical with any number of related organization units.
+Organization manages users and groups.
+Groups gather users with special defined roles. App is necessary for granting user access to manage other application according to user roles.
+Users may access only resources related with organization to which they belong ("Staff Group"). Users belonging to "Admin Group" may manage applications on their organization level and all organizations belonging to their organization. Same user may belong to diferent organizations and groups performing diferent roles. Its posible to create users who belong to given group and in the same time are not member of staff group (can be usefull for consultants, etc)
+
+App allows:
 
 * Create any hierarchy of organizations
 * Create and manage users related with organization
@@ -22,11 +23,12 @@ Users may access only resources related with organization to which they belong (
 
 ###Assets Inventory App
 
-* Multiple inventories for each organization
-* Create asset templates to allow for easier adding of individual items of the same kind.
+* Supports multiple inventories for each organization
+* Create asset templates to streamline adding of individual items belonging to the same model.
 * Ability to retire & reactivate inventory assets.
 * Assign assets to one or more users.
 * Assets may have different owners.
+* Asset records may have attached files with drivers, manulas, configuration documents etc
 * Freely defined properties for each asset class.
 * User defined locations (with precise geographic position). 
 * Search utility
@@ -53,7 +55,6 @@ Users may access only resources related with organization to which they belong (
 * Automatic incident resolution deadline evaluation based on user status
 * Tightly integrated with Assets Inventory app.
 * Incident submission 
-* Automatic evaluation of incident priority based on impact and urgency metrics
 * Incident Follow Up - keep track of all changes of state and observations following incident
 * Change of status of incident triggers email notifications
 
@@ -61,73 +62,87 @@ Users may access only resources related with organization to which they belong (
 ###Service Management App
 
 * Based on concept of SLA (Service Level Agreement)
-* Service dependence
+* Implements Service dependence
 * Each service may have many SLAs with different providers
 * SLA may contain few personalized classes of properties
 * SLA may have attached files with contract, documentation, manuals etc
 
-Installing
-----------
+###Management Dashboard
+Agregates metrics from other apps and displays comprehensive view on actual IT status. 
+
+* Problematic Assets
+* Pending Asset Requests
+* Unresolved Incidents
+* Incident Followup
+
+
+Installation
+------------
 Assuming that you got virtualenv (python virtual retirement) created and activated.
+Project has been developed againts Django 1.5 and Python 2.7. Other versions may not work.
 
-Install via pip:
+As default project use SQLite database. Set another one if you need in `manage_it/settings.py`.
 
-    pip install -e git+git@github.com:ShangShungInstitute/django-it-manager.git#egg=it-manager
+Install Apps:
 
-Install requirements:
+    git clone https://github.com/ShangShungInstitute/django-manage-it manager_it
 
-    pip install -e requirements.txt
+Install dependency requirements:
 
-In "INSTALLED_APPS" in settings.py file must be present:
-    
-    # core apps
-    'catalog',
-    'assets',
-    'pagination',
-    'incidents',
-    'network',
-    'services',
-    'organizations',
-    'notifications',
+    pip install -r manager_it/requirements.txt
 
-    # dependency apps
-    'dataforms',
-    'debug_toolbar',
+Create DB tables etc.:
 
-Add to 'urlpatterns' (at the end) urls.py file:
-    
-    ORG_URL = "(?P<org_url>.+)/"
-    
-    url(r'^$',
-        "organizations.views.list_organizations", name='home'),
-    url(r'^admin/',
-        include(admin.site.urls)),
-    url(r'^%sdashboard/' % ORG_URL,
-        "manage_it.views.dashboard", name='dashboard'),
-    url(r'^%sinventory/' % ORG_URL,
-        include("catalog.urls")),
-    url(r'^%sassets/' % ORG_URL,
-        include("assets.urls")),
-    url(r'^network/',
-        include("network.urls")),
-    url(r'^%sincidents/' % ORG_URL,
-        include("incidents.urls")),
-    url(r'^%sservices/' % ORG_URL,
-        include('services.urls')),
-    url(r'^%sorganization/' % ORG_URL,
-        include('organizations.urls')),
-    
-Create tables etc.:
+    python manager_it/manager_it/manage.py syncdb
 
-    python manage.py syncdb
+You may preload dataforms with forms for assets and services:
 
+    python manager_it/manager_it/manage.py loaddata manager_it/manager_it/initial_data.json
+
+Settings
+--------
+You can personalize follwing setttings in `manage_it/settings.py`:
+
+`ORG_RESPONSE_MATRIX` defines deadlines for incident resolution. Numeric key relates to `PRIORITY_GRADES`, position in tuple relates to `USERS_TYPES`. 
+```python
+ORG_RESPONSE_MATRIX = dict(
+    _1=({min: 30}, {min: 30}, {min: 30, "perma": True}),
+    _2=({"hours": 1}, {"hours": 1}, {min: 30, "perma": True}),
+    _3=({"hours": 4}, {"hours": 2}, {"hours": 1, "perma": True}),
+    _4=({"days": 2}, {"days": 1}, {"hours": 2}),
+    _5=({"days": 5}, {"days": 2}, {"days": 2}),
+)
+
+ORG_STATUSES = (
+    (1, "open"),
+    (2, "in work"),
+    (3, "closed"),
+    (4, "defunkt"),
+    (5, "duplicate"),
+)
+
+ORG_SERVICE_TYPES = (
+    (1, _("Communications")),
+    (2, _("Security")),
+    (3, _("Servers, Data, Backup")),
+    (4, _("Software & Business Applications")),
+    (5, _("Web & Collaboration")),
+    (6, _("Email & Collaboration")),
+)
+```
 #TODO
 Not in order of importance or priority
 
 * [*] Implement Organizations
 * [*] User permissions
-* [ ] Documentation for users and managers
-* [ ] Billing
+* [ ] Documentation for users, managers and administrators
+* [ ] Login with OAuth
+* [*] Relate network connection to inventory
+* [ ] Integrate services to incident managent app so incidents can reffer to services
+* [ ] Build user interace to create and edit network interfaces in network app
+* [ ] Build user interace to create and edit connections in network app
+* [ ] Billing against recurrent services, assets etc
+* [ ] Trigerring notifications on custom defined conditions and events
 * [ ] Network monitoring
 * [ ] Refactor Organization as separate project
 * [ ] Refactor Location as separate project
@@ -135,8 +150,28 @@ Not in order of importance or priority
 * [ ] Logging
 * [ ] Auditing 
 * [ ] Custom defined workflows for provisions. incident management etc
+* [ ] Consider replacing dataform with NoSQL as MongoDB or similar
 
-#LICENSE
+#Licence
+```
+The MIT License (MIT)
 
-#Author
-Kamil Selwa selwak@gmail.com
+Copyright (c) 2013 Kamil Selwa
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```

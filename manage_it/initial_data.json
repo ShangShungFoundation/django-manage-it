@@ -1,0 +1,2493 @@
+[
+{
+    "pk": 1, 
+    "model": "dataforms.collection", 
+    "fields": {
+        "visible": true, 
+        "slug": "assets", 
+        "description": "", 
+        "title": "assets"
+    }
+},
+{
+    "pk": 2, 
+    "model": "dataforms.collection", 
+    "fields": {
+        "visible": true, 
+        "slug": "services", 
+        "description": "", 
+        "title": "services"
+    }
+},
+{
+    "pk": 1, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 1, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 17, 
+        "order": null, 
+        "collection": 2
+    }
+},
+{
+    "pk": 3, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 18, 
+        "order": null, 
+        "collection": 2
+    }
+},
+{
+    "pk": 4, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 11, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 5, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 12, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 6, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 9, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 7, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 13, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 8, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 7, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 9, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 4, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 10, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 8, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 11, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 5, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 12, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 15, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 13, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 6, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 14, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 14, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 15, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 16, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 16, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 10, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 17, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 2, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 18, 
+    "model": "dataforms.collectiondataform", 
+    "fields": {
+        "section": null, 
+        "data_form": 19, 
+        "order": null, 
+        "collection": 1
+    }
+},
+{
+    "pk": 1, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "pcs", 
+        "description": "", 
+        "title": "PCs"
+    }
+},
+{
+    "pk": 2, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "wif", 
+        "description": "", 
+        "title": "wifi"
+    }
+},
+{
+    "pk": 3, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "hdp", 
+        "description": "", 
+        "title": "headphones"
+    }
+},
+{
+    "pk": 4, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "prn", 
+        "description": "", 
+        "title": "printer"
+    }
+},
+{
+    "pk": 5, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "scr", 
+        "description": "", 
+        "title": "screen"
+    }
+},
+{
+    "pk": 6, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "swt", 
+        "description": "", 
+        "title": "switch/router"
+    }
+},
+{
+    "pk": 7, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "cnv", 
+        "description": "converts signal beetwen diferent network media", 
+        "title": "network converter"
+    }
+},
+{
+    "pk": 8, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "scn", 
+        "description": "", 
+        "title": "scanner"
+    }
+},
+{
+    "pk": 9, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "mic", 
+        "description": "", 
+        "title": "microphone"
+    }
+},
+{
+    "pk": 10, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "vid", 
+        "description": "", 
+        "title": "video cam"
+    }
+},
+{
+    "pk": 11, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "tv", 
+        "description": "", 
+        "title": "TV"
+    }
+},
+{
+    "pk": 12, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "ups", 
+        "description": "", 
+        "title": "UPS"
+    }
+},
+{
+    "pk": 13, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "mdm", 
+        "description": "", 
+        "title": "modem"
+    }
+},
+{
+    "pk": 14, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "tel", 
+        "description": "", 
+        "title": "telephone"
+    }
+},
+{
+    "pk": 15, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "str", 
+        "description": "", 
+        "title": "storage"
+    }
+},
+{
+    "pk": 16, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "ttl", 
+        "description": "mobile network extender", 
+        "title": "ttl"
+    }
+},
+{
+    "pk": 17, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "internet-access", 
+        "description": "", 
+        "title": "Internet Access"
+    }
+},
+{
+    "pk": 18, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "tel-line", 
+        "description": "", 
+        "title": "Telephone line"
+    }
+},
+{
+    "pk": 19, 
+    "model": "dataforms.dataform", 
+    "fields": {
+        "visible": true, 
+        "slug": "aud", 
+        "description": "", 
+        "title": "audio device"
+    }
+},
+{
+    "pk": 1, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 1, 
+        "data_form": 1, 
+        "order": 4
+    }
+},
+{
+    "pk": 3, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 3, 
+        "data_form": 1, 
+        "order": 2
+    }
+},
+{
+    "pk": 4, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 4, 
+        "data_form": 1, 
+        "order": 5
+    }
+},
+{
+    "pk": 5, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 5, 
+        "data_form": 1, 
+        "order": 6
+    }
+},
+{
+    "pk": 6, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 6, 
+        "data_form": 1, 
+        "order": 7
+    }
+},
+{
+    "pk": 7, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 7, 
+        "data_form": 1, 
+        "order": 8
+    }
+},
+{
+    "pk": 8, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 8, 
+        "data_form": 1, 
+        "order": 10
+    }
+},
+{
+    "pk": 9, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 1, 
+        "data_form": 2, 
+        "order": 0
+    }
+},
+{
+    "pk": 10, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 2, 
+        "data_form": 2, 
+        "order": 1
+    }
+},
+{
+    "pk": 11, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 9, 
+        "data_form": 2, 
+        "order": 2
+    }
+},
+{
+    "pk": 12, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 10, 
+        "data_form": 2, 
+        "order": 4
+    }
+},
+{
+    "pk": 13, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 11, 
+        "data_form": 2, 
+        "order": 5
+    }
+},
+{
+    "pk": 14, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 1, 
+        "data_form": 4, 
+        "order": null
+    }
+},
+{
+    "pk": 15, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 12, 
+        "data_form": 4, 
+        "order": null
+    }
+},
+{
+    "pk": 16, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 13, 
+        "data_form": 4, 
+        "order": null
+    }
+},
+{
+    "pk": 17, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 14, 
+        "data_form": 5, 
+        "order": null
+    }
+},
+{
+    "pk": 18, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 15, 
+        "data_form": 6, 
+        "order": null
+    }
+},
+{
+    "pk": 19, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 16, 
+        "data_form": 6, 
+        "order": null
+    }
+},
+{
+    "pk": 20, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 17, 
+        "data_form": 6, 
+        "order": null
+    }
+},
+{
+    "pk": 21, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 17, 
+        "data_form": 7, 
+        "order": null
+    }
+},
+{
+    "pk": 22, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 19, 
+        "data_form": 4, 
+        "order": null
+    }
+},
+{
+    "pk": 23, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 13, 
+        "data_form": 8, 
+        "order": null
+    }
+},
+{
+    "pk": 24, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 20, 
+        "data_form": 9, 
+        "order": null
+    }
+},
+{
+    "pk": 25, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 21, 
+        "data_form": 9, 
+        "order": null
+    }
+},
+{
+    "pk": 26, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 22, 
+        "data_form": 10, 
+        "order": 0
+    }
+},
+{
+    "pk": 27, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 23, 
+        "data_form": 10, 
+        "order": 3
+    }
+},
+{
+    "pk": 28, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 24, 
+        "data_form": 10, 
+        "order": 2
+    }
+},
+{
+    "pk": 29, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 25, 
+        "data_form": 10, 
+        "order": 1
+    }
+},
+{
+    "pk": 30, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 14, 
+        "data_form": 11, 
+        "order": null
+    }
+},
+{
+    "pk": 31, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 26, 
+        "data_form": 11, 
+        "order": null
+    }
+},
+{
+    "pk": 32, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 27, 
+        "data_form": 12, 
+        "order": null
+    }
+},
+{
+    "pk": 33, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 28, 
+        "data_form": 12, 
+        "order": null
+    }
+},
+{
+    "pk": 34, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 30, 
+        "data_form": 13, 
+        "order": 0
+    }
+},
+{
+    "pk": 35, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 2, 
+        "data_form": 13, 
+        "order": 1
+    }
+},
+{
+    "pk": 36, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 33, 
+        "data_form": 13, 
+        "order": 3
+    }
+},
+{
+    "pk": 37, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 1, 
+        "data_form": 13, 
+        "order": 2
+    }
+},
+{
+    "pk": 38, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 31, 
+        "data_form": 14, 
+        "order": 1
+    }
+},
+{
+    "pk": 39, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 29, 
+        "data_form": 14, 
+        "order": 0
+    }
+},
+{
+    "pk": 40, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 32, 
+        "data_form": 14, 
+        "order": 2
+    }
+},
+{
+    "pk": 41, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 34, 
+        "data_form": 15, 
+        "order": 1
+    }
+},
+{
+    "pk": 42, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 35, 
+        "data_form": 15, 
+        "order": 0
+    }
+},
+{
+    "pk": 43, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 38, 
+        "data_form": 13, 
+        "order": null
+    }
+},
+{
+    "pk": 44, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 39, 
+        "data_form": 13, 
+        "order": null
+    }
+},
+{
+    "pk": 45, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 40, 
+        "data_form": 16, 
+        "order": null
+    }
+},
+{
+    "pk": 46, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 38, 
+        "data_form": 2, 
+        "order": 6
+    }
+},
+{
+    "pk": 47, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 39, 
+        "data_form": 2, 
+        "order": 7
+    }
+},
+{
+    "pk": 48, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 42, 
+        "data_form": 2, 
+        "order": 3
+    }
+},
+{
+    "pk": 49, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 15, 
+        "data_form": 2, 
+        "order": null
+    }
+},
+{
+    "pk": 50, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 43, 
+        "data_form": 1, 
+        "order": 0
+    }
+},
+{
+    "pk": 51, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 44, 
+        "data_form": 1, 
+        "order": 1
+    }
+},
+{
+    "pk": 52, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 45, 
+        "data_form": 1, 
+        "order": 3
+    }
+},
+{
+    "pk": 53, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 46, 
+        "data_form": 1, 
+        "order": 9
+    }
+},
+{
+    "pk": 54, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 47, 
+        "data_form": 17, 
+        "order": null
+    }
+},
+{
+    "pk": 55, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 37, 
+        "data_form": 17, 
+        "order": null
+    }
+},
+{
+    "pk": 56, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 48, 
+        "data_form": 17, 
+        "order": null
+    }
+},
+{
+    "pk": 57, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 49, 
+        "data_form": 17, 
+        "order": null
+    }
+},
+{
+    "pk": 58, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 2, 
+        "data_form": 17, 
+        "order": null
+    }
+},
+{
+    "pk": 59, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 29, 
+        "data_form": 18, 
+        "order": null
+    }
+},
+{
+    "pk": 60, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 50, 
+        "data_form": 19, 
+        "order": null
+    }
+},
+{
+    "pk": 61, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 51, 
+        "data_form": 19, 
+        "order": null
+    }
+},
+{
+    "pk": 62, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 52, 
+        "data_form": 19, 
+        "order": null
+    }
+},
+{
+    "pk": 63, 
+    "model": "dataforms.dataformfield", 
+    "fields": {
+        "field": 53, 
+        "data_form": 19, 
+        "order": null
+    }
+},
+{
+    "pk": 1, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "IP", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "ip_private"
+    }
+},
+{
+    "pk": 2, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "IP public", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "ip_public"
+    }
+},
+{
+    "pk": 3, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": true, 
+        "initial": "", 
+        "label": "system", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "system"
+    }
+},
+{
+    "pk": 4, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": true, 
+        "initial": "", 
+        "label": "processor", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "processor"
+    }
+},
+{
+    "pk": 5, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "pc type", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "pc_type"
+    }
+},
+{
+    "pk": 6, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "IntegerInput", 
+        "required": true, 
+        "initial": "", 
+        "label": "RAM", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "in GB", 
+        "slug": "ram"
+    }
+},
+{
+    "pk": 7, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": true, 
+        "initial": "", 
+        "label": "HDs", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "example: \r\nC: 149GB D: 931GB", 
+        "slug": "hd"
+    }
+},
+{
+    "pk": 8, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "teamviewer", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "teamviewer"
+    }
+},
+{
+    "pk": 9, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "Gate", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "gate"
+    }
+},
+{
+    "pk": 10, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "SSID", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "ssid"
+    }
+},
+{
+    "pk": 11, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Textarea", 
+        "required": false, 
+        "initial": "", 
+        "label": "access", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "access"
+    }
+},
+{
+    "pk": 12, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": true, 
+        "initial": "", 
+        "label": "Type", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "type"
+    }
+},
+{
+    "pk": 13, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "paper size", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "paper_size"
+    }
+},
+{
+    "pk": 14, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "DecimalInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "screen width", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "in inches", 
+        "slug": "screen_width"
+    }
+},
+{
+    "pk": 15, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "IntegerInput", 
+        "required": true, 
+        "initial": "", 
+        "label": "ports number", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "conections_nr"
+    }
+},
+{
+    "pk": 16, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "switch managed", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "switch_managed"
+    }
+},
+{
+    "pk": 17, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "lan speed", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "lan_speed"
+    }
+},
+{
+    "pk": 18, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "printer type", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "prnt_type"
+    }
+},
+{
+    "pk": 19, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "printer type", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "prn_type"
+    }
+},
+{
+    "pk": 20, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "microphone type", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "mic_type"
+    }
+},
+{
+    "pk": 21, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "microphone output", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "mic_out"
+    }
+},
+{
+    "pk": 22, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "resolution", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "resolution"
+    }
+},
+{
+    "pk": 23, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "CheckboxInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "HDMI output", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "hdmi"
+    }
+},
+{
+    "pk": 24, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "CheckboxInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "SD storage", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "sd"
+    }
+},
+{
+    "pk": 25, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "Storage", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "storage"
+    }
+},
+{
+    "pk": 26, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "CheckboxInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "HDMI input", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "hdmi-input"
+    }
+},
+{
+    "pk": 27, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "IntegerInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "nr of outlets", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "outlets_nr"
+    }
+},
+{
+    "pk": 28, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "IntegerInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "duration", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "in minutes", 
+        "slug": "duration"
+    }
+},
+{
+    "pk": 29, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "DecimalInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "Tel number", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "tel_number"
+    }
+},
+{
+    "pk": 30, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "provider", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "provider"
+    }
+},
+{
+    "pk": 31, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "IntegerInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "fax", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "fax"
+    }
+},
+{
+    "pk": 32, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "CheckboxInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "wireless", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "wireless"
+    }
+},
+{
+    "pk": 33, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "modem type", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "modem_type"
+    }
+},
+{
+    "pk": 34, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "IntegerInput", 
+        "required": true, 
+        "initial": "", 
+        "label": "storage size", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "storage_size"
+    }
+},
+{
+    "pk": 35, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "Storage type", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "storage_type"
+    }
+},
+{
+    "pk": 36, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "Download speed", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "dwn_speed"
+    }
+},
+{
+    "pk": 37, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "upload speed", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "upload_speed"
+    }
+},
+{
+    "pk": 38, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "Admin name", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "admin"
+    }
+},
+{
+    "pk": 39, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Password", 
+        "required": false, 
+        "initial": "", 
+        "label": "Admin password", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "admin_pass"
+    }
+},
+{
+    "pk": 40, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "tel network", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "tel_network"
+    }
+},
+{
+    "pk": 41, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": true, 
+        "initial": "", 
+        "label": "printer_color", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "printer_color"
+    }
+},
+{
+    "pk": 42, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": true, 
+        "initial": "", 
+        "label": "wifi encription", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "wifi_encription"
+    }
+},
+{
+    "pk": 43, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "name", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "name"
+    }
+},
+{
+    "pk": 44, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Textarea", 
+        "required": false, 
+        "initial": "", 
+        "label": "users", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "users"
+    }
+},
+{
+    "pk": 45, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "TextInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "workgroup", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "workgroup"
+    }
+},
+{
+    "pk": 46, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Textarea", 
+        "required": false, 
+        "initial": "", 
+        "label": "Software", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "software"
+    }
+},
+{
+    "pk": 47, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "IntegerInput", 
+        "required": true, 
+        "initial": "", 
+        "label": "download speed", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "download_speed"
+    }
+},
+{
+    "pk": 48, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "IntegerInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "guaranteed download speed", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "guaranteed_download_speed"
+    }
+},
+{
+    "pk": 49, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "IntegerInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "guaranteed upload speed", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "guaranteed_upload_speed"
+    }
+},
+{
+    "pk": 50, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "Select", 
+        "required": false, 
+        "initial": "", 
+        "label": "audio media", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "aud_media"
+    }
+},
+{
+    "pk": 51, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "CheckboxInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "can record", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "aud_rec"
+    }
+},
+{
+    "pk": 52, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "CheckboxInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "portable", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "portable"
+    }
+},
+{
+    "pk": 53, 
+    "model": "dataforms.field", 
+    "fields": {
+        "field_type": "CheckboxInput", 
+        "required": false, 
+        "initial": "", 
+        "label": "digital", 
+        "visible": true, 
+        "classes": "", 
+        "arguments": "", 
+        "help_text": "", 
+        "slug": "digital"
+    }
+},
+{
+    "pk": 1, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 5, 
+        "order": null, 
+        "choice": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 5, 
+        "order": null, 
+        "choice": 3
+    }
+},
+{
+    "pk": 3, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 12, 
+        "order": null, 
+        "choice": 4
+    }
+},
+{
+    "pk": 4, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 12, 
+        "order": null, 
+        "choice": 5
+    }
+},
+{
+    "pk": 5, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 13, 
+        "order": null, 
+        "choice": 6
+    }
+},
+{
+    "pk": 6, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 13, 
+        "order": null, 
+        "choice": 7
+    }
+},
+{
+    "pk": 7, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 16, 
+        "order": null, 
+        "choice": 8
+    }
+},
+{
+    "pk": 8, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 16, 
+        "order": null, 
+        "choice": 9
+    }
+},
+{
+    "pk": 9, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 12, 
+        "order": null, 
+        "choice": 10
+    }
+},
+{
+    "pk": 10, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 12, 
+        "order": null, 
+        "choice": 11
+    }
+},
+{
+    "pk": 11, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 17, 
+        "order": null, 
+        "choice": 12
+    }
+},
+{
+    "pk": 12, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 17, 
+        "order": null, 
+        "choice": 13
+    }
+},
+{
+    "pk": 13, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 18, 
+        "order": null, 
+        "choice": 14
+    }
+},
+{
+    "pk": 14, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 18, 
+        "order": null, 
+        "choice": 15
+    }
+},
+{
+    "pk": 15, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 19, 
+        "order": null, 
+        "choice": 14
+    }
+},
+{
+    "pk": 16, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 19, 
+        "order": null, 
+        "choice": 15
+    }
+},
+{
+    "pk": 17, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 20, 
+        "order": null, 
+        "choice": 16
+    }
+},
+{
+    "pk": 18, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 20, 
+        "order": null, 
+        "choice": 17
+    }
+},
+{
+    "pk": 19, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 21, 
+        "order": null, 
+        "choice": 18
+    }
+},
+{
+    "pk": 20, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 21, 
+        "order": null, 
+        "choice": 19
+    }
+},
+{
+    "pk": 21, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 21, 
+        "order": null, 
+        "choice": 20
+    }
+},
+{
+    "pk": 22, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 22, 
+        "order": null, 
+        "choice": 21
+    }
+},
+{
+    "pk": 23, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 22, 
+        "order": null, 
+        "choice": 22
+    }
+},
+{
+    "pk": 24, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 25, 
+        "order": null, 
+        "choice": 23
+    }
+},
+{
+    "pk": 25, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 25, 
+        "order": null, 
+        "choice": 22
+    }
+},
+{
+    "pk": 26, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 33, 
+        "order": null, 
+        "choice": 24
+    }
+},
+{
+    "pk": 27, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 33, 
+        "order": null, 
+        "choice": 25
+    }
+},
+{
+    "pk": 28, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 33, 
+        "order": null, 
+        "choice": 26
+    }
+},
+{
+    "pk": 29, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 33, 
+        "order": null, 
+        "choice": 27
+    }
+},
+{
+    "pk": 30, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 35, 
+        "order": null, 
+        "choice": 28
+    }
+},
+{
+    "pk": 31, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 35, 
+        "order": null, 
+        "choice": 29
+    }
+},
+{
+    "pk": 32, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 35, 
+        "order": null, 
+        "choice": 30
+    }
+},
+{
+    "pk": 33, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 35, 
+        "order": null, 
+        "choice": 31
+    }
+},
+{
+    "pk": 34, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 40, 
+        "order": null, 
+        "choice": 33
+    }
+},
+{
+    "pk": 35, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 41, 
+        "order": null, 
+        "choice": 34
+    }
+},
+{
+    "pk": 36, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 41, 
+        "order": null, 
+        "choice": 35
+    }
+},
+{
+    "pk": 37, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 42, 
+        "order": null, 
+        "choice": 36
+    }
+},
+{
+    "pk": 38, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 42, 
+        "order": null, 
+        "choice": 37
+    }
+},
+{
+    "pk": 39, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 42, 
+        "order": null, 
+        "choice": 38
+    }
+},
+{
+    "pk": 40, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 50, 
+        "order": null, 
+        "choice": 40
+    }
+},
+{
+    "pk": 41, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 50, 
+        "order": null, 
+        "choice": 41
+    }
+},
+{
+    "pk": 42, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 50, 
+        "order": null, 
+        "choice": 42
+    }
+},
+{
+    "pk": 43, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 50, 
+        "order": null, 
+        "choice": 43
+    }
+},
+{
+    "pk": 44, 
+    "model": "dataforms.fieldchoice", 
+    "fields": {
+        "field": 25, 
+        "order": null, 
+        "choice": 44
+    }
+},
+{
+    "pk": 1, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "tower", 
+        "title": "tower"
+    }
+},
+{
+    "pk": 2, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "desktop", 
+        "title": "desktop"
+    }
+},
+{
+    "pk": 3, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "laptop", 
+        "title": "laptop"
+    }
+},
+{
+    "pk": 4, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "multifunction", 
+        "title": "multifunction"
+    }
+},
+{
+    "pk": 5, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "printer", 
+        "title": "printer"
+    }
+},
+{
+    "pk": 6, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "A4", 
+        "title": "A4"
+    }
+},
+{
+    "pk": 7, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "A3", 
+        "title": "A3"
+    }
+},
+{
+    "pk": 8, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "yes", 
+        "title": "yes"
+    }
+},
+{
+    "pk": 9, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "no", 
+        "title": "no"
+    }
+},
+{
+    "pk": 10, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "label", 
+        "title": "label printer"
+    }
+},
+{
+    "pk": 11, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "cd-printer", 
+        "title": "CD printer"
+    }
+},
+{
+    "pk": 12, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "100Mb", 
+        "title": "100Mb"
+    }
+},
+{
+    "pk": 13, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "1Gb", 
+        "title": "1Gb"
+    }
+},
+{
+    "pk": 14, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "laser", 
+        "title": "laser"
+    }
+},
+{
+    "pk": 15, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "inkjet", 
+        "title": "inkjet"
+    }
+},
+{
+    "pk": 16, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "wireless", 
+        "title": "wireless"
+    }
+},
+{
+    "pk": 17, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "wired", 
+        "title": "wired"
+    }
+},
+{
+    "pk": 18, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "mini-jack", 
+        "title": "mini jack"
+    }
+},
+{
+    "pk": 19, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "jack", 
+        "title": "jack"
+    }
+},
+{
+    "pk": 20, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "rca", 
+        "title": "RCA"
+    }
+},
+{
+    "pk": 21, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "full-hd", 
+        "title": "full HD"
+    }
+},
+{
+    "pk": 22, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "hd", 
+        "title": "HD"
+    }
+},
+{
+    "pk": 23, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "minidv", 
+        "title": "MiniDV"
+    }
+},
+{
+    "pk": 24, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "adsl", 
+        "title": "ADSL"
+    }
+},
+{
+    "pk": 25, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "hdsl", 
+        "title": "HDSL"
+    }
+},
+{
+    "pk": 26, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "Satelite", 
+        "title": "Satelite"
+    }
+},
+{
+    "pk": 27, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "radio_link", 
+        "title": "Radio Link"
+    }
+},
+{
+    "pk": 28, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "hd-external", 
+        "title": "HD - external"
+    }
+},
+{
+    "pk": 29, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "hd_internal", 
+        "title": "HD - internal"
+    }
+},
+{
+    "pk": 30, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "disk-array", 
+        "title": "Disk Array"
+    }
+},
+{
+    "pk": 31, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "tape", 
+        "title": "Tape Memory"
+    }
+},
+{
+    "pk": 32, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "server", 
+        "title": "server"
+    }
+},
+{
+    "pk": 33, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "gsm", 
+        "title": "GSM"
+    }
+},
+{
+    "pk": 34, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "bw", 
+        "title": "BW"
+    }
+},
+{
+    "pk": 35, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "color", 
+        "title": "Color"
+    }
+},
+{
+    "pk": 36, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "open", 
+        "title": "Open"
+    }
+},
+{
+    "pk": 37, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "wpa", 
+        "title": "WPA"
+    }
+},
+{
+    "pk": 38, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "wpe", 
+        "title": "WPE"
+    }
+},
+{
+    "pk": 39, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "rack", 
+        "title": "rack"
+    }
+},
+{
+    "pk": 40, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "cassete", 
+        "title": "cassete"
+    }
+},
+{
+    "pk": 41, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "int-hd", 
+        "title": "intenal HD"
+    }
+},
+{
+    "pk": 42, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "SD", 
+        "title": "SD"
+    }
+},
+{
+    "pk": 43, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "tape", 
+        "title": "tape"
+    }
+},
+{
+    "pk": 44, 
+    "model": "dataforms.choice", 
+    "fields": {
+        "value": "digital_8", 
+        "title": "Digital 8"
+    }
+}
+]

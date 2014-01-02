@@ -71,7 +71,6 @@ class Organization(models.Model):
             ("can_manage_org", "Can manage Organization: create Organization, \
                 change data, add / remove groups"),
             ("can_manage_assets", "Can manage Inventories"),
-            ("can_manage_assets", "Can manage Inventories"),
         )
 
     def save(self, *args, **kwargs):

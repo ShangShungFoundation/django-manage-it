@@ -1,4 +1,12 @@
 *.pyc
+<<<<<<< HEAD
 .directory
 settings_local.py
 manage_it/sqlite.db
+=======
+env/*
+doc/*
+manage_it/sqlite.db
+manage_it/manage_it/settings_local.py
+manage_it/manage_it/media/*
+>>>>>>> e8e383c04fc0cad9fc1c95298546cc6b656b7cf7

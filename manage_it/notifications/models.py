@@ -14,8 +14,7 @@ LEVEL_CHOICES = (
 STATUS = (
     (1, _("pending")),
     (2, _("delivered")),
-    (3, _("read")),
-)
+    (3, _("read"))),
 
 
 class Notification(models.Model):

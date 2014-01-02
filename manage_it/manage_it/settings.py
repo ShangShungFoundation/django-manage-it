@@ -96,7 +96,7 @@ TEMPLATE_LOADERS = (
     # 'django.template.loaders.eggs.Loader',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -106,7 +106,8 @@ MIDDLEWARE_CLASSES = (
     'pagination.middleware.PaginationMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
+]
+
 
 ROOT_URLCONF = 'manage_it.urls'
 
@@ -128,8 +129,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
-    "allauth.account.context_processors.account",
-    "allauth.socialaccount.context_processors.socialaccount",
 )
 
 INSTALLED_APPS = [
@@ -140,7 +139,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-
     # core apps
     'catalog',
     'assets',
@@ -149,16 +147,9 @@ INSTALLED_APPS = [
     'services',
     'organizations',
     'notifications',
-
     # dependency apps
     'pagination',
     'dataforms',
-    'tastypie',
-    #allauth
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
 ]
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -191,13 +182,6 @@ LOGGING = {
         },
     }
 }
-
-# debug toolbar
-INTERNAL_IPS = (
-    '127.0.0.1', '192.168.100.41', '192.168.100.22', '192.168.100.144')
-
-LIMIT_ASIGNED_USERS = []
-
 
 # importing local settings
 try:

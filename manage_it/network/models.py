@@ -19,7 +19,8 @@ class Network(models.Model):
     """
     ItemConnection for networked assets
     """
-    inventory = models.ForeignKey(Inventory, verbose_name=_(u"inventory"))
+    inventory = models.ForeignKey(
+        Inventory, verbose_name=_(u"inventory"))
     name = models.CharField(_(u"name"), max_length=100)
     description = models.TextField(blank=True, null=True)
     ip_range = models.CharField(

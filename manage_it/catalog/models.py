@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # -*- coding: utf-8 -*-
+=======
+>>>>>>> e8e383c04fc0cad9fc1c95298546cc6b656b7cf7
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.contenttypes.models import ContentType
@@ -9,6 +12,7 @@ from organizations.models import Organization
 
 class Location(models.Model):
     name = models.CharField(_("name"), max_length=32, )
+<<<<<<< HEAD
     address_line1 = models.CharField(
         _(u"address 1"),
         max_length=64, null=True, blank=True, )
@@ -27,6 +31,14 @@ class Location(models.Model):
     lat = models.CharField(
         _(u"geo latitude"),
         max_length=16, null=True, blank=True, )
+=======
+    address_line1 = models.CharField(max_length=64, null=True, blank=True, )
+    address_line2 = models.CharField(max_length=64, null=True, blank=True, )
+    phone_number1 = models.CharField(max_length=32, null=True, blank=True, )
+    phone_number2 = models.CharField(max_length=32, null=True, blank=True, )
+    lng = models.CharField(max_length=16, null=True, blank=True, )
+    lat = models.CharField(max_length=16, null=True, blank=True, )
+>>>>>>> e8e383c04fc0cad9fc1c95298546cc6b656b7cf7
 
     class Meta:
         ordering = ['name']
@@ -76,6 +88,7 @@ class ItemTemplate(models.Model):
 
 
 class Log(models.Model):
+<<<<<<< HEAD
     # TODO implemet
     timedate = models.DateTimeField(
         _(u"timedate"),
@@ -83,6 +96,12 @@ class Log(models.Model):
     action = models.CharField(
         _(u"action"),
         max_length=32)
+=======
+    timedate = models.DateTimeField(
+        _(u"timedate"),
+        auto_now_add=True)
+    action = models.CharField(max_length=32)
+>>>>>>> e8e383c04fc0cad9fc1c95298546cc6b656b7cf7
     description = models.TextField(
         _(u"description"),
         null=True, blank=True)
@@ -102,8 +121,12 @@ class Log(models.Model):
 
 
 class Inventory(models.Model):
+<<<<<<< HEAD
     name = models.CharField(
         _(u'name'), max_length=32, )
+=======
+    name = models.CharField(_(u'name'), max_length=32, )
+>>>>>>> e8e383c04fc0cad9fc1c95298546cc6b656b7cf7
     location = models.ForeignKey(
         Location,
         verbose_name=_(u'location'))
@@ -125,6 +148,7 @@ class Inventory(models.Model):
 
 class Supplier(models.Model):
     #TODO: Contact, extension
+<<<<<<< HEAD
     name = models.CharField(
         _("name"), max_length=32)
     address_line1 = models.CharField(
@@ -138,13 +162,32 @@ class Supplier(models.Model):
         max_length=32, null=True, blank=True, )
     phone_number2 = models.CharField(
         _(u"tel 2"),
+=======
+    name = models.CharField(max_length=32, verbose_name=_("name"))
+    address_line1 = models.CharField(
+        _(u'address 1'),
+        max_length=64, null=True, blank=True,)
+    address_line2 = models.CharField(
+        max_length=64, null=True, blank=True, )
+    address_line3 = models.CharField(
+        max_length=64, null=True, blank=True, )
+    address_line4 = models.CharField(
+        max_length=64, null=True, blank=True, )
+    phone_number1 = models.CharField(
+        max_length=32, null=True, blank=True, )
+    phone_number2 = models.CharField(
+>>>>>>> e8e383c04fc0cad9fc1c95298546cc6b656b7cf7
         max_length=32, null=True, blank=True, )
     email = models.EmailField(
         null=True, blank=True,)
     web = models.CharField(
         max_length=32, null=True, blank=True, )
+<<<<<<< HEAD
     notes = models.TextField(
         _(u'notes'), null=True, blank=True,)
+=======
+    notes = models.TextField(_(u'notes'), null=True, blank=True,)
+>>>>>>> e8e383c04fc0cad9fc1c95298546cc6b656b7cf7
 
     class Meta:
         ordering = ['name']

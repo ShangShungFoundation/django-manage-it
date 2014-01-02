@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from assets.models import State, ItemState, Item, ItemGroup, Person, Resource
+from assets.models import State, ItemState, Item, Person, Resource
 
 
 class ItemAdmin(admin.ModelAdmin):
@@ -11,6 +11,5 @@ class ItemAdmin(admin.ModelAdmin):
 admin.site.register(State)
 admin.site.register(ItemState)
 admin.site.register(Item, ItemAdmin)
-admin.site.register(ItemGroup)
 admin.site.register(Person)
 admin.site.register(Resource)

@@ -1,0 +1,9 @@
+django==1.5.5
+django-allauth
+django-tastypie
+django-dataforms
+south
+xlwt
+markdown
+django-pagination
+django-debug-toolbar
