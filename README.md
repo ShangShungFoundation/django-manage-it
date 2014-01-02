@@ -83,13 +83,13 @@ Project has been tested againts Django 1.5 and Python 2.7
 
 As default project use SQLite database. Set another one if you need in `manage_it/settings.py`.
 
-Install via pip:
+Install Apps:
 
-    pip install -e git+git@github.com:ShangShungInstitute/django-it-manager.git#egg=manager-it
+    git clone https://github.com/ShangShungInstitute/django-manage-it manager_it
 
-Install requirements:
+Install dependency requirements:
 
-    pip install -e requirements.txt
+    pip install -r manager_it/requirements.txt
 
 Create DB tables etc.:
 
