@@ -1,4 +1,3 @@
-
 import datetime
 
 from django.db import models
@@ -145,27 +144,6 @@ class Item(models.Model):
         except:
             pass
         super(Item, self).delete(*args, **kwargs)
-
-
-class ItemGroup(models.Model):
-    name = models.CharField(
-        _(u"name"), max_length=32)
-    items = models.ManyToManyField(
-        Item,
-        verbose_name=_(u"item"),
-        blank=True, null=True, )
-
-    class Meta:
-        ordering = ['name']
-        verbose_name = _(u"item group")
-        verbose_name_plural = _(u"item groups")
-
-    def __unicode__(self):
-        return self.name
-
-    @models.permalink
-    def get_absolute_url(self):
-        return ('group_view', [str(self.id)])
 
 
 class Person(models.Model):
