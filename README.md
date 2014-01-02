@@ -186,6 +186,7 @@ Not in order of importance or priority
 * [ ] Logging
 * [ ] Auditing 
 * [ ] Custom defined workflows for provisions. incident management etc
+* [ ] Consider replacing dataform with NoSQL as MongoDB or similar
 
 #Licence
 ```
@@ -210,6 +211,3 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
-
-#Author
-Kamil Selwa selwak@gmail.com
