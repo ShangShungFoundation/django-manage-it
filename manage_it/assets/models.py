@@ -1,11 +1,13 @@
-
+# -*- coding: utf-8 -*-
 import datetime
 
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+
 from catalog.models import ItemTemplate, Location, Inventory
 from dataforms.models import DataForm, Submission, Answer
+from organizations.models import Organization
 
 
 class State(models.Model):
@@ -220,9 +222,9 @@ class Owner(models.Model):
         return self.name
 
 RESOURCE_TYPES = (
-    (1, "driver"),
-    (2, "manual"),
-    (3, "configuration"),
+    (1, _("driver")),
+    (2, _("manual")),
+    (3, _("configuration")),
 )
 
 
@@ -242,14 +244,19 @@ class Resource(models.Model):
 
 
 ASSET_REQUEST_STATUSES = (
-    (1, "open"),
-    (2, "accepted"),
-    (3, "fulfilled"),
-    (4, "rejected"),
+    (1, _("open")),
+    (2, _("accepted")),
+    (3, _("fulfilled")),
+    (4, _("rejected")),
 )
 
 
 class AssetRequest(models.Model):
+    organization = models.ForeignKey(
+        Organization,
+        related_name="replaced_organizations",
+        verbose_name=_(u"organization"))
+
     replaced_item = models.ForeignKey(
         Item,
         related_name="replaced_items",
@@ -277,9 +284,9 @@ class AssetRequest(models.Model):
         choices=ASSET_REQUEST_STATUSES)
 
     description = models.TextField(
-        _(u"description"), 
+        _(u"description"),
         null=True, blank=True)
 
     def __unicode__(self):
-        return u"new %s requested by %s at %s" % (
+        return _(u"new %s requested by %s at %s") % (
             self.item_class,  self.created_by, self.created_at)
