@@ -7,7 +7,7 @@ IT tool belt implementing some of best practices for IT management. Is in early 
 Currently implemeted apps:
 
 ###Organization App
-This app should reflect organization structure. Stucture can be horizontal or herachical with any number of related organization units.
+This app should reflect organization structure. Stucture can be horizontal or hierarchical with any number of related organization units.
 Organization manages users and groups.
 Groups gather users with special defined roles. App is necessary for granting user access to manage other application according to user roles.
 Users may access only resources related with organization to which they belong ("Staff Group"). Users belonging to "Admin Group" may manage applications on their organization level and all organizations belonging to their organization. Same user may belong to diferent organizations and groups performing diferent roles. Its posible to create users who belong to given group and in the same time are not member of staff group (can be usefull for consultants, etc)
