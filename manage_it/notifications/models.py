@@ -14,7 +14,7 @@ LEVEL_CHOICES = (
 STATUS = (
     (1, _("pending")),
     (2, _("delivered")),
-    (3, _("read"))),
+    (3, _("read")))
 
 
 class Notification(models.Model):
@@ -25,12 +25,18 @@ class Notification(models.Model):
         User, related_name="related_receptors",
         verbose_name=_(u"receptor"))
     message = models.TextField(_(u"message"))
-    level = models.IntegerField(_(u"level"), choices=LEVEL_CHOICES)
-    created = models.DateTimeField(_(u"created"), auto_now_add=True)
-    modified = models.DateTimeField(_(u"modified"), auto_now=True)
-    url = models.URLField(_(u"url"), blank=True, null=True)
-    status = models.IntegerField(_(u"status"), choices=STATUS, default=2)
-    expires = models.DateTimeField(_(u"expires"), null=True, blank=True)
+    level = models.IntegerField(
+        _(u"level"), choices=LEVEL_CHOICES)
+    created = models.DateTimeField(
+        _(u"created"), auto_now_add=True)
+    modified = models.DateTimeField(
+        _(u"modified"), auto_now=True)
+    url = models.URLField(
+        _(u"url"), blank=True, null=True)
+    status = models.IntegerField(
+        _(u"status"), choices=STATUS, default=2)
+    expires = models.DateTimeField(
+        _(u"expires"), null=True, blank=True)
 
     def __unicode__(self):
         return force_unicode(self.message)
