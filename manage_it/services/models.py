@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -16,26 +15,32 @@ from settings import SERVICE_TYPES
 
 class Provider(models.Model, AuditMixin):
     #TODO: Contact, extension
-    name = models.CharField(max_length=32, verbose_name=_("name"))
-
+    name = models.CharField(
+        _("name"), max_length=32 )
     service_type = models.SmallIntegerField(
         _(u"service type"),
         choices=SERVICE_TYPES)
-
+        
     address_line1 = models.CharField(
         _(u'address 1'),
         max_length=64, null=True, blank=True,)
-    address_line2 = models.CharField(max_length=64, null=True, blank=True, )
-    phone_number1 = models.CharField(max_length=32, null=True, blank=True, )
-    phone_number2 = models.CharField(max_length=32, null=True, blank=True, )
+    address_line2 = models.CharField(
+        _(u'address 2'), max_length=64, null=True, blank=True, )
+    phone_number1 = models.CharField(
+        _(u'tel 1'), max_length=32, null=True, blank=True, )
+    phone_number2 = models.CharField(
+        _(u'tel 2'), max_length=32, null=True, blank=True, )
 
-    email = models.EmailField(null=True, blank=True,)
-    web = models.CharField(max_length=32, null=True, blank=True, )
+    email = models.EmailField(
+        _(u'email'), null=True, blank=True,)
+    web = models.CharField(
+        _(u'web'), max_length=32, null=True, blank=True, )
 
     contact_person = models.CharField(
         _("contact person"), max_length=32, null=True, blank=True)
 
-    notes = models.TextField(_(u'notes'), null=True, blank=True,)
+    notes = models.TextField(
+        _(u'notes'), null=True, blank=True,)
 
     class Meta:
         ordering = ['name']
@@ -51,7 +56,8 @@ class Provider(models.Model, AuditMixin):
 
 
 class Service(models.Model, AuditMixin):
-    name = models.CharField(_(u'name'), max_length=32)
+    name = models.CharField(
+        _(u'name'), max_length=32)
     description = models.TextField(
         _(u"description"),
         null=True, blank=True)
@@ -111,9 +117,9 @@ class Service(models.Model, AuditMixin):
 
 
 DOCUMENT_SENSITIVITY = (
-    (1, "reserved"),
-    (2, "internal"),
-    (3, "public"),
+    (1, _("reserved")),
+    (2, _("internal")),
+    (3, _("public")),
 )
 
 
@@ -213,7 +219,8 @@ DOCUMENT_SENSITIVITY = (
 
 
 class Document(models.Model):
-    SLA = models.ForeignKey(SLA, verbose_name=_(u"item"))
+    SLA = models.ForeignKey(
+        SLA, verbose_name=_(u"item"))
     document_type = models.SmallIntegerField(
         _(u"document type"),
         choices=DOCUMENT_TYPES)
