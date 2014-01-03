@@ -76,10 +76,10 @@
 	<ul>
 		{{ search_form.as_ul }}
 		{{ search_form.management_form }}
-		<li><button>SEARCH</button></li>
+		<li class="right"><button>SEARCH</button></li>
 	</ul>
 	{% csrf_token %}
-	<p><a href="{% url "export_assets_xsl" org_url %}?{{ query }} " class="tiny.button" >export Excel</a></p>
+	<p class="clear right"><a href="{% url "export_assets_xsl" org_url %}?{{ query }} " class="tiny button" >export Excel</a></p>
 </form>
 
 {% endblock content %}

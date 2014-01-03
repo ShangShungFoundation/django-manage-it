@@ -8,21 +8,23 @@
 
 <div class="large-12 columns">
 
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
 <form action="/admin/" method="post" id="login-form">
   <div class="form-row">
-    
-    <label for="id_username" class="required">Username:</label> <input id="id_username" maxlength="254" name="username" type="text" value="kam">
+    {% csrf_token %}
+    {{ form.as_p }}
   </div>
+
   <div class="form-row">
-    
-    <label for="id_password" class="required">Password:</label> <input id="id_password" name="password" type="password">
+    <input type="hidden" name="next" value="{{ next }}" >
     <input type="hidden" name="this_is_the_login_form" value="1">
-    <input type="hidden" name="next" value="/admin/">
   </div>
   
-  
-  <div class="submit-row">
-    <label>&nbsp;</label><input type="submit" value="Log in">
+  <div class="submit-row right">
+    <label>&nbsp;</label><input type="submit" value="Log in" class="button">
   </div>
 </form>
 </div>
