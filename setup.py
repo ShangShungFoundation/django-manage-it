@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-it-manager',
-    version='0.1b',
+    version='0.2b',
     description='IT Management Suite Django',
     author='Kamil Selwa',
     author_email='selwak@gmail.com',
