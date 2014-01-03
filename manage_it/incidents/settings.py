@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
 
@@ -12,11 +14,11 @@ ORG_RESPONSE_MATRIX = dict(
 RESPONSE_MATRIX = getattr(settings, "ORG_RESPONSE_MATRIX", ORG_RESPONSE_MATRIX)
 
 ORG_STATUSES = (
-    (1, "open"),
-    (2, "in work"),
-    (3, "closed"),
-    (4, "defunkt"),
-    (5, "duplicate"),
+    (1, _("open")),
+    (2, _("in work")),
+    (3, _("closed")),
+    (4, _("defunkt")),
+    (5, _("duplicate")),
 )
 
 STATUSES = getattr(settings, "ORG_STATUSES", ORG_STATUSES)
