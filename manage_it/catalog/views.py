@@ -5,7 +5,6 @@ import xlwt
 
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.utils import simplejson
 
 from dataforms.forms import get_answers
 
@@ -159,5 +158,5 @@ def list_json(request):
 
     #data = serializers.serialize("json", items)
 
-    out = "var nodes=%s;" % simplejson.dumps(out)
+    out = "var nodes=%s;" % json.dumps(out)
     return HttpResponse(out, mimetype='application/json')
