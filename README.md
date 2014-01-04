@@ -79,7 +79,7 @@ Agregates metrics from other apps and displays comprehensive view on actual IT s
 Installation
 ------------
 Assuming that you got virtualenv (python virtual retirement) created and activated.
-Project has been developed againts Django 1.5 and Python 2.7. Other versions may not work.
+Project has been developed againts Django1.5/1.6 and Python 2.7. Other versions may not work.
 
 As default project use SQLite database. Set another one if you need in `manage_it/settings.py`.
 
@@ -112,7 +112,9 @@ ORG_RESPONSE_MATRIX = dict(
     _4=({"days": 2}, {"days": 1}, {"hours": 2}),
     _5=({"days": 5}, {"days": 2}, {"days": 2}),
 )
+```
 
+```python
 ORG_STATUSES = (
     (1, "open"),
     (2, "in work"),
@@ -120,7 +122,9 @@ ORG_STATUSES = (
     (4, "defunkt"),
     (5, "duplicate"),
 )
+```
 
+```python
 ORG_SERVICE_TYPES = (
     (1, _("Communications")),
     (2, _("Security")),

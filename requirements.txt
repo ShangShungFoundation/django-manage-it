@@ -1,4 +1,4 @@
-django==1.5.5
+django==1.6.1
 -e git+https://github.com/k1000/django-dataforms.git#egg=dataform
 south
 xlwt
