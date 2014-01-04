@@ -156,7 +156,5 @@ def list_json(request):
 
     #items = (Item.objects.values("id", "notes", "active", "state", "property_number", "item_template_id", "item_template__description", "item_class__title", "item_class__slug", "item_class_id", "location__name", "owner__last_name", "owner__first_name")[5:7])
 
-    #data = serializers.serialize("json", items)
-
     out = "var nodes=%s;" % json.dumps(out)
     return HttpResponse(out, mimetype='application/json')

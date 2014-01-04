@@ -4,11 +4,10 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import Group
 
+from settings import GROUP_ROLES, URL_DELIMITER
 
-from settings import GROUP_ROLES
 
-
-class IncidentNotificationGroupNotDefined(Exception):
+class GroupNotDefined(Exception):
     """You must assing incident_notification_group in admin panell."""
     pass
 
@@ -77,7 +76,10 @@ class Organization(models.Model):
         """TODO update parent url to propagate changes"""
 
         if self.parent_id:
-            self.url = u"%s-%s" % (self.parent.url, self.slug)
+            self.url = u"%s%s%s" % (self.parent.url, URL_DELIMITER, self.slug)
+            # we must propagate slug change to all children
+            for division in self.divisions.all():
+                division.save()
         else:
             self.url = self.slug
 
@@ -96,6 +98,13 @@ class Organization(models.Model):
     def full_name(self):
         return u"%s %s" % (self.parent, self.name)
 
+    @staticmethod
+    def get_urls(url):
+        return url.split(URL_DELIMITER)
+
+    def get_head_url(self, url):
+        return self.get_urls(url)[0]
+
     def __unicode__(self):
         return self.name
 
@@ -104,7 +113,7 @@ class Organization(models.Model):
         if self.is_head:
             return self
         else:
-            head_slug = self.url.split("-")[0]
+            head_slug = self.get_urls(self.url)[0]
             return Organization.objects.get(slug=head_slug)
 
     # herachy methods

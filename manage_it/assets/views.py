@@ -2,7 +2,7 @@
 import time
 from markdown import markdown
 
-from django.utils import simplejson
+import json
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -82,7 +82,7 @@ def get_json(request, org_url, slug):
 
     data = _out_dict(it)
     data["properties"] = get_answers(slug)
-    out = simplejson.dumps([data])
+    out = json.dumps([data])
     return HttpResponse(out, mimetype='application/json')
 
 
