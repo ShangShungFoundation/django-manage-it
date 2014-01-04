@@ -134,11 +134,10 @@ ORG_SERVICE_TYPES = (
     (6, _("Email & Collaboration")),
 )
 ```
-
+Superior groups defines groups which are checked for existence of user in superior levels of organization
 ```python
 ORG_SUPERIOR_GROUPS = ["admin_group", "accounting_group"]
 ```
-
 #TODO
 Not in order of importance or priority
 
