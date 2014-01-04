@@ -1,4 +1,3 @@
-
 import logging
 from functools import wraps
 
@@ -9,7 +8,7 @@ from models import Organization, OrganizationGroup
 
 logger = logging.getLogger('django.request')
 
-from settings import REDIRECT_URL
+from settings import REDIRECT_URL, SUPERIOR_GROUPS
 
 
 #https://github.com/django/django/blob/master/django/views/decorators/http.py#L31
@@ -21,6 +20,38 @@ def get_user_groups(org, usr):
     return user_groups
 
 
+def get_user_groups_in_org(org, usr):
+    """get all user groups in organization herarchy"""
+    user_groups = OrganizationGroup.objects.filter(
+        org__url__startswith=org.get_head_url(org.url),
+        group__user=usr)
+    return user_groups
+
+
+def get_user_manager_roles_in_org(org, usr):
+    """get all user groups in organization herarchy"""
+    user_groups = get_user_groups_in_org(org, usr)
+    user_manager_roles = user_groups.filer(role="admin_group")
+    return user_manager_roles
+
+
+def get_superior_groups(organization_groups, org):
+    superior_groups = dict([g, []] for g in SUPERIOR_GROUPS)
+    for org_group in organization_groups:
+        if not org_group.org.url.startswith(org.url) and org_group.role in SUPERIOR_GROUPS:
+            superior_groups[org_group.role].append(org_group.org)
+    return superior_groups
+
+
+def get_user_roles(org, usr):
+    user_groups = get_user_groups_in_org(org, usr)
+    user_roles_in_org = user_groups.filter(
+        org__exact=org).values_list("role", flat=True)
+    superior_user_groups = get_superior_groups(
+        user_groups, org)
+    return user_roles_in_org, superior_user_groups
+
+
 def required_member(parameter=None):
     """
     Possible paramenters are defined by roles groups slugs \
@@ -28,6 +59,7 @@ def required_member(parameter=None):
     """
 
     def decorator(view_func):
+
         @wraps(view_func, assigned=available_attrs(view_func))
         def inner(request, *args, **kwargs):
             if 'org_url' in kwargs:
@@ -39,16 +71,24 @@ def required_member(parameter=None):
             except:
                 return redirect(REDIRECT_URL)
 
-            user_groups = get_user_groups(request.organization, request.user)
-            user_roles = user_groups.values_list("role", flat=True)
-            request.user.roles = user_roles
+            request.user.roles, superior_groups = get_user_roles(
+                request.organization,
+                request.user)
+            #assing superior groups to user
+            for group in SUPERIOR_GROUPS:
+                setattr(
+                    request.user,
+                    "super_%s" % group,
+                    superior_groups.get(group, []))
 
+            # free ride for superuser
             if request.user.is_superuser:
                 return view_func(request, *args, **kwargs)
-            if user_roles and not parameter:
-                # is memaber of any group
+            # let pass user belonging to any group in org
+            if request.user.roles and not parameter:
                 return view_func(request, *args, **kwargs)
-            if user_roles and parameter in user_roles:
+            # let go user belonging to particular group
+            if request.user.roles and parameter in request.user.roles:
                 return view_func(request, *args, **kwargs)
             return redirect(REDIRECT_URL)
         return inner
