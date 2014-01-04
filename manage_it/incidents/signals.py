@@ -1,9 +1,7 @@
 from django.db.models.signals import post_save
 
 from notifications.notify import notify
-from organizations.models import IncidentNotificationGroupNotDefined
-
-from organizations.models import OrganizationGroup
+from organizations.models import OrganizationGroup, GroupNotDefined
 
 from models import Incident  # IncidentFollowup
 
@@ -24,13 +22,13 @@ def signal_incident(sender, instance, created, **kwargs):
         incident_notification_group = OrganizationGroup.objects.filter(
             role="incident_notification_group",
             org=org)
-
-        if not incident_notification_group[0]:
-            raise IncidentNotificationGroupNotDefined()
-        notification_group = list(
-            incident_notification_group.group.user_set.all())
-        receivers = [submitter] + notification_group
-        notify(submitter, receivers, msg, 3)
+        if not incident_notification_group:
+            raise GroupNotDefined("Incident notification group not implemented")
+        else:
+            notification_group = list(
+                incident_notification_group.group.user_set.all())
+            receivers = [submitter] + notification_group
+            notify(submitter, receivers, msg, 3)
 
 
 def signal_followup(sender, instance, created, **kwargs):
