@@ -134,6 +134,11 @@ ORG_SERVICE_TYPES = (
     (6, _("Email & Collaboration")),
 )
 ```
+
+```python
+ORG_SUPERIOR_GROUPS = ["admin_group", "accounting_group"]
+```
+
 #TODO
 Not in order of importance or priority
 
