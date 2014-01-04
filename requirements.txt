@@ -1,5 +1,5 @@
 django==1.5.5
-django-dataforms
+-e git+https://github.com/k1000/django-dataforms.git#egg=dataform
 south
 xlwt
 markdown

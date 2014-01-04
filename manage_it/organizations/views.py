@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import Group
 
 from user_access import staff_required
 from forms import GroupForm, OrganizationForm, UserForm, EditUserForm
 from models import Organization, OrganizationGroup
+
+from django.conf import settings
 
 
 @login_required
@@ -37,7 +39,7 @@ def new_user(request, org_url):
 @staff_required
 def edit_user(request, org_url, user_id):
     organization = request.organization
-    user = User.objects.get(id=user_id)
+    user = settings.AUTH_USER_MODEL.objects.get(id=user_id)
     form = EditUserForm(request.POST or None, instance=user)
 
     if form.is_valid():
@@ -61,7 +63,7 @@ def edit_user(request, org_url, user_id):
 @staff_required
 def view_user(request, org_url, user_id):
     organization = request.organization
-    user = User.objects.get(id=user_id)
+    user = settings.AUTH_USER_MODEL.objects.get(id=user_id)
     return render(
         request,
         "organizations/user_view.html",

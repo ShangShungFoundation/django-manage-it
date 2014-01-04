@@ -2,7 +2,7 @@
 import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import Group
 
 from dataforms.models import DataForm
 
@@ -10,6 +10,7 @@ from catalog.models import Location
 from organizations.models import Organization
 from lib.model_audit import AuditMixin
 
+from django.conf import settings
 from settings import SERVICE_TYPES
 
 
@@ -76,7 +77,7 @@ class Service(models.Model, AuditMixin):
         verbose_name=_(u'Owner'),
         related_name="related_owners")
     manager = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         verbose_name=_(u'Manager'))
 
     user_groups = models.ManyToManyField(
@@ -84,7 +85,7 @@ class Service(models.Model, AuditMixin):
         null=True, blank=True,
         verbose_name=_(u'User Groups'),)
     users = models.ManyToManyField(
-        User,
+        settings.AUTH_USER_MODEL,
         null=True, blank=True,
         related_name="related_users")
 
@@ -231,7 +232,7 @@ class Document(models.Model):
         _(u"sensitivity"), choices=DOCUMENT_SENSITIVITY)
 
     created_at = models.DateTimeField(default=datetime.datetime.now())
-    created_by = models.ForeignKey(User)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL)
 
     doc = models.FileField(
         "file",
@@ -303,7 +304,7 @@ class Bill(models.Model):
         help_text=_("billing period againt which bill was issued"))
 
     created_at = models.DateTimeField(default=datetime.datetime.now())
-    created_by = models.ForeignKey(User)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL)
 
     def __unicode__(self):
         return u"%s %s" % (self.billing, self.period)

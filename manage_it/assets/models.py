@@ -2,8 +2,8 @@
 import datetime
 
 from django.db import models
-from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 
 from catalog.models import ItemTemplate, Location, Inventory
 from dataforms.models import DataForm, Submission, Answer
@@ -88,9 +88,11 @@ class Item(models.Model):
         null=True, blank=True)
     active = models.BooleanField(default=True)
     state = models.ForeignKey(State, verbose_name=_(u"state"), )
-    owner = models.ForeignKey(User, verbose_name=_(u"owner"))
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        verbose_name=_(u"owner"))
     users = models.ManyToManyField(
-        User,
+        settings.AUTH_USER_MODEL,
         related_name="users",
         verbose_name=_(u"users"))
     created = models.DateTimeField(default=datetime.datetime.now())
@@ -259,7 +261,8 @@ class AssetRequest(models.Model):
     created_at = models.DateTimeField(
         default=datetime.datetime.now())
     created_by = models.ForeignKey(
-        User, verbose_name=_(u"created by"))
+        settings.AUTH_USER_MODEL,
+        verbose_name=_(u"created by"))
 
     status = models.SmallIntegerField(
         _(u"status"),

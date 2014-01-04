@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from django.contrib.auth.models import User
 from django.utils.encoding import force_unicode
 from django.utils.translation import ugettext_lazy as _
 
+from django.conf import settings
 
 LEVEL_CHOICES = (
     (1, _("mesage")),
@@ -19,10 +19,12 @@ STATUS = (
 
 class Notification(models.Model):
     sender = models.ForeignKey(
-        User, related_name="related_senders",
+        settings.AUTH_USER_MODEL,
+        related_name="related_senders",
         verbose_name=_(u"User"))
     receptor = models.ForeignKey(
-        User, related_name="related_receptors",
+        settings.AUTH_USER_MODEL,
+        related_name="related_receptors",
         verbose_name=_(u"receptor"))
     message = models.TextField(_(u"message"))
     level = models.IntegerField(

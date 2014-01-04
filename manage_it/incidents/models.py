@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 from datetime import timedelta
+
 from django.utils import timezone
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
