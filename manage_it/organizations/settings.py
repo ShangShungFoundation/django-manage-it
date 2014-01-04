@@ -15,3 +15,9 @@ ORG_GROUP_ROLES = (
 GROUP_ROLES = getattr(settings, "ORG_GROUP_ROLES", ORG_GROUP_ROLES)
 
 REDIRECT_URL = getattr(settings, "ORG_REDIRECT_URL", "/")
+
+URL_DELIMITER = getattr(settings, "ORG_URL_DELIMITER", "-")
+
+# Superior groups defines groups which are check to be user in superior levels of organization
+SUPERIOR_GROUPS = ["admin_group", "accounting_group"]
+SUPERIOR_GROUPS = getattr(settings, "ORG_SUPERIOR_GROUPS", SUPERIOR_GROUPS)
