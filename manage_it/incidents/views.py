@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-from django.utils import simplejson
+import json
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from organizations.models import Organization
 from organizations.user_access import staff_required
 
 from models import Incident, IncidentFollowup
@@ -39,7 +38,7 @@ def get(request, org_url, object_id):
             incident=incident,
             observations=incident_followup_form.cleaned_data["observations"],
             created_by=request.user,
-            status_change=simplejson.dumps(incident.diff))
+            status_change=json.dumps(incident.diff))
         followup.save()
         messages.success(request, "follow up has been sumited")
 
@@ -57,14 +56,14 @@ def get(request, org_url, object_id):
 
 @login_required
 @staff_required
-def list(request, org_url):
+def list(request, org_url=None):
     new_incident_form = NewIncidentForm(request.POST or None, )
-    organization = get_object_or_404(Organization, url=org_url)
+    org = request.organization
     vars = dict(
-        incidents=Incident.objects.all(),
+        incidents=Incident.objects.filter(organization__exact=org),
         new_incident_form=new_incident_form,
         org_url=org_url,
-        org=organization,
+        org=org,
     )
 
     return render(
