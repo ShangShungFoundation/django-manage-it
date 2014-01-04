@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-
+import json
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.utils import simplejson
 from django.core import serializers
 
 from models import Connection
@@ -43,6 +42,6 @@ def scan_network(request, network_id):
     raport = scan(file_path)
     #connections = list(
         #Connection.objects.select_related("device_1", "device_2").all())
-    data = simplejson.dumps(raport)
+    data = json.dumps(raport)
     out = "var nmap_raport=%s;" % data
     return HttpResponse(out, mimetype='application/json')
