@@ -102,7 +102,6 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.transaction.TransactionMiddleware',
     'pagination.middleware.PaginationMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -196,6 +195,7 @@ else:
         pass
 
     try:
-        MIDDLEWARE_CLASSES += LOCAL_MIDDLEWARE_CLASSES
+        # in order to make debug toolbar work correctly we must include it before other middleware
+        MIDDLEWARE_CLASSES = LOCAL_MIDDLEWARE_CLASSES + MIDDLEWARE_CLASSES
     except NameError:
         pass
