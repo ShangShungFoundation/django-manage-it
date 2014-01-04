@@ -149,9 +149,12 @@ def edit(request, org_url, slug):
     if request.method == "POST" and form.is_valid() and detail_form.is_valid() and resource_form.is_valid():
         form.save()
         detail_saved = detail_form.save()
-        #resource = resource_form.save(commit=False)
+        # TODO save resources
+        #resource_form.save(commit=False)
         #resource.item_id = instance.id
-        #msgs.append("item SKU: %s updated" % detail_saved.slug)
+        msg = "item SKU: %s updated" % detail_saved.slug
+        messages.success(request, msg)
+        #msgs.append()
 
     vars = dict(
         item=instance,
