@@ -5,13 +5,13 @@ from datetime import timedelta
 from django.utils import timezone
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.models import User
 
 from assets.models import Item
 from lib.model_diff_mixin import ModelDiffMixin
 from organizations.models import Organization
 
 from settings import STATUSES, RESPONSE_MATRIX
+from django.conf import settings
 
 IMPACT_GRADES = [
     (1, _("High")),
@@ -66,11 +66,14 @@ class Incident(models.Model, ModelDiffMixin):
     subject = models.CharField(_("subject"), max_length=100, )
     description = models.TextField(_(u"description"), max_length=64)
 
-    submited_at = models.DateTimeField(_(u"submited at"), auto_now_add=True)
-    submited_by = models.ForeignKey(User, verbose_name=_(u"submited by"))
+    submited_at = models.DateTimeField(
+        _(u"submited at"), auto_now_add=True)
+    submited_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        verbose_name=_(u"submited by"))
 
     assigned_to = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         verbose_name=_("assigned to"),
         null=True, blank=True,
         related_name="asigned_workers",
@@ -101,7 +104,8 @@ class Incident(models.Model, ModelDiffMixin):
     priority = models.SmallIntegerField(
         _(u"priority"), choices=PRIORITY_GRADES)
 
-    status = models.SmallIntegerField(_(u"status"), choices=STATUSES)
+    status = models.SmallIntegerField(
+        _(u"status"), choices=STATUSES)
 
     affected_devices = models.ManyToManyField(
         Item,
@@ -116,7 +120,8 @@ class Incident(models.Model, ModelDiffMixin):
         null=True, blank=True,
         max_length=64)
 
-    daedline = models.DateTimeField(_(u"respond daedline"), null=True)
+    daedline = models.DateTimeField(
+        _(u"respond daedline"), null=True)
 
     class Meta:
         ordering = ['status']
@@ -181,14 +186,15 @@ class IncidentFollowup(models.Model):
     objects = IncidentFolowupManager()
 
     incident = models.ForeignKey(
-        Incident, verbose_name=_(u"item"))
+        Incident,
+        verbose_name=_(u"incident"))
     status_change = models.TextField(
         _(u"status change"),
         blank=True, null=True,)
 
     created_at = models.DateTimeField(
         _(u"created_at"), auto_now_add=True)
-    created_by = models.ForeignKey(User)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL)
 
     observations = models.TextField(_(u"observations"),)
 
@@ -218,7 +224,7 @@ class IncidentFollowup(models.Model):
         if not self.status_change or self.status_change == "{}":
             return []
         #import ipdb; ipdb.set_trace()
-        changes = simplejson.loads(self.status_change)
+        changes = json.loads(self.status_change)
         return [self.display_change(f, changes[f]) for f in changes.keys()]
 
     @models.permalink
