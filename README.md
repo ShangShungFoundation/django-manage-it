@@ -141,24 +141,24 @@ ORG_SUPERIOR_GROUPS = ["admin_group", "accounting_group"]
 #TODO
 Not in order of importance or priority
 
-* [*] Implement Organizations
-* [*] User permissions
-* [ ] Documentation for users, managers and administrators
-* [ ] Login with OAuth
-* [*] Relate network connection to inventory
-* [ ] Integrate services to incident managent app so incidents can reffer to services
-* [ ] Build user interace to create and edit network interfaces in network app
-* [ ] Build user interace to create and edit connections in network app
-* [ ] Billing against recurrent services, assets etc
-* [ ] Trigerring notifications on custom defined conditions and events
-* [ ] Network monitoring
-* [ ] Refactor Organization as separate project
-* [ ] Refactor Location as separate project
-* [ ] Multilingual support
-* [ ] Logging
-* [ ] Auditing 
-* [ ] Custom defined workflows for provisions. incident management etc
-* [ ] Consider replacing dataform with NoSQL as MongoDB or similar
+- [x] Implement Organizations
+- [x] User permissions
+- [ ] Documentation for users, managers and administrators
+- [ ] Login with OAuth
+- [x] Relate network connection to inventory
+- [ ] Integrate services to incident managent app so incidents can reffer to services
+- [ ] Build user interace to create and edit network interfaces in network app
+- [ ] Build user interace to create and edit connections in network app
+- [ ] Billing against recurrent services, assets etc
+- [ ] Trigerring notifications on custom defined conditions and events
+- [ ] Network monitoring
+- [ ] Refactor Organization as separate project
+- [ ] Refactor Location as separate project
+- [ ] Multilingual support
+- [ ] Logging
+- [ ] Auditing 
+- [ ] Custom defined workflows for provisions. incident management etc
+- [ ] Consider replacing dataform with NoSQL as MongoDB or similar
 
 #Licence
 ```
