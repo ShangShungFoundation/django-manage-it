@@ -78,7 +78,7 @@ Agregates metrics from other apps and displays comprehensive view on actual IT s
 
 Installation
 ------------
-Assuming that you got virtualenv (python virtual retirement) created and activated.
+Assuming that you got virtualenv (python virtual enviroment) created and activated.
 Project has been developed againts Django1.5/1.6 and Python 2.7. Other versions may not work.
 
 As default project use SQLite database. Set another one if you need in `manage_it/settings.py`.
